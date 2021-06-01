@@ -5,12 +5,13 @@ Getting Started
 
 Description 
 ==============================================================
-* Giotto provides a flexible framework for common single-cell processing steps such as:
 
-	* Quality control
-	* Normalization
-	* Dimension reduction
-	* Clustering and cell type annotation
+- Giotto provides a flexible framework for common single-cell processing steps such as:
+ 
+	- Quality control
+	- Normalization
+ 	- Dimension reduction
+ 	- Clustering and cell type annotation
 
 * To facilitate the analysis of recently emerging high-throughput, but lower-resolution spatial transcriptomic technologies, such as 10X Genomics Visium and Slide-seq, Giotto has 3 implemented algorithms for estimating the spatial enrichment of different cell types by integration of known gene signatures or single-cell RNAseq expression and annotation data.
 * Spatial information is retained through the formation of a spatial grid and/or a spatial proximity network, which is used to:
@@ -85,7 +86,10 @@ Giotto provides a lot of analyses, visualizations and other options to facilitat
 
 .. _contact us.: https://github.com/RubD/Giotto/issues
 
-Giotto Workflow Analyses
+`Giotto Workflow Analyses`_
+================================================================
+.. _Giotto Workflow Analyses: _build/html/giottoworkflowanalyses.html
+
 ----------------------------------------------------------------
 
 *Optional*: Install a Giotto Environment
