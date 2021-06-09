@@ -83,103 +83,16 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Giotto Workflow Diagram</a></li>
-<li><a class="reference internal" href="#giotto-workflow-analyses">Giotto Workflow Analyses</a></li>
-<li><a class="reference internal" href="#create-a-giotto-object">1. Create a Giotto Object</a><ul>
-<li><a class="reference internal" href="#minimum-requirements"><em>Minimum Requirements:</em></a></li>
-<li><a class="reference internal" href="#additional-features"><em>Additional Features</em></a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#description">Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#requirements">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#workflow-diagram">Workflow Diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#howtos">HowTos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#giotto-workflow-analyses"><span class="xref std std-doc">Giotto Workflow Analyses</span></a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#process-and-filter-a-giotto-object">2. Process and Filter a Giotto Object</a><ul>
-<li><a class="reference internal" href="#id4">2.1 Create a Giotto object</a></li>
-<li><a class="reference internal" href="#normalize-giotto-object">2.3 Normalize Giotto object</a></li>
-<li><a class="reference internal" href="#optional-add-gene-and-cell-statistics-and-adjust-matrix-for-technical-covariates-or-batch-effects">2.4 <em>Optional:</em> Add gene and cell statistics and adjust matrix for technical covariates or batch effects</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#dimension-reduction">3. Dimension Reduction</a><ul>
-<li><a class="reference internal" href="#create-and-process-giotto-object">3.1 Create and process Giotto object</a></li>
-<li><a class="reference internal" href="#highly-variable-genes">3.2 Highly variable genes</a></li>
-<li><a class="reference internal" href="#pca">3.3 PCA</a></li>
-<li><a class="reference internal" href="#umap-tsne">3.4 UMAP &amp; TSNE</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#cluster-cells-or-spots">4. Cluster cells or spots</a><ul>
-<li><a class="reference internal" href="#processing-steps">4.1 Processing steps</a></li>
-<li><a class="reference internal" href="#clustering-algorithms">4.2.1 Clustering algorithms</a></li>
-<li><a class="reference internal" href="#clustering-similarity-and-merging">4.2.2 Clustering similarity and merging</a></li>
-<li><a class="reference internal" href="#dendrogram-splits">4.3 Dendrogram splits</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#identify-differentially-expressed-genes">5. Identify differentially expressed genes</a><ul>
-<li><a class="reference internal" href="#marker-gene-detection">Marker Gene Detection</a></li>
-<li><a class="reference internal" href="#gini">5.1 Gini</a></li>
-<li><a class="reference internal" href="#scran">5.2 Scran</a></li>
-<li><a class="reference internal" href="#mast">5.3 Mast</a></li>
-<li><a class="reference internal" href="#wrapper">5.4 Wrapper</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#annotate-clusters">6. Annotate clusters</a><ul>
-<li><a class="reference internal" href="#giotto-annotation-tools">Giotto Annotation Tools</a></li>
-<li><a class="reference internal" href="#annotate-clusters-or-other-type-of-metadata-information">6.1 Annotate clusters or other type of metadata information</a></li>
-<li><a class="reference internal" href="#remove-cell-annotation">6.2 Remove cell annotation</a></li>
-<li><a class="reference internal" href="#remove-gene-annotation">6.3 Remove gene annotation</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#cell-type-enrichment-or-deconvolution-per-spot">7. Cell-type enrichment or deconvolution per spot</a><ul>
-<li><a class="reference internal" href="#giotto-spot-enrichment-tools">Giotto spot enrichment tools</a></li>
-<li><a class="reference internal" href="#id10">7.1 Processing steps</a></li>
-<li><a class="reference internal" href="#run-spatial-cell-type-enrichments-methods">7.2 Run spatial cell type enrichments methods</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#create-a-spatial-grid-or-network">8. Create a Spatial grid or Network</a><ul>
-<li><a class="reference internal" href="#create-a-spatial-grid">8.1 Create a spatial grid</a></li>
-<li><a class="reference internal" href="#create-a-spatial-network">8.2 Create a spatial network</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#find-genes-with-a-spatially-coherent-gene-expression-pattern">9. Find genes with a spatially coherent gene expression pattern</a><ul>
-<li><a class="reference internal" href="#spatial-gene-detection-tools"><em>Spatial Gene Detection Tools</em></a></li>
-<li><a class="reference internal" href="#id11">9.1 Processing steps</a></li>
-<li><a class="reference internal" href="#run-spatial-gene-detection-methods">9.2. Run spatial gene detection methods</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#spatially-coexpressed-genes">10. Identify genes that are spatially co-expressed</a><ul>
-<li><a class="reference internal" href="#spatial-gene-co-expression">Spatial Gene Co-Expression</a></li>
-<li><a class="reference internal" href="#id12">10.1 Processing steps</a></li>
-<li><a class="reference internal" href="#run-spatial-gene-co-expression-method">10.2 Run spatial gene co-expression method</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#explore-spatial-domains-with-hmrf">11. Explore spatial domains with HMRF</a><ul>
-<li><a class="reference internal" href="#hmrf"><em>HMRF</em></a></li>
-<li><a class="reference internal" href="#run-hmrf">11.2 Run HMRF</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#calculate-spatial-cell-cell-interaction-enrichment">12. Calculate spatial cell-cell interaction enrichment</a><ul>
-<li><a class="reference internal" href="#cell-cell-interaction-analysis-and-visualization"><em>Cell-cell interaction analysis and visualization</em></a></li>
-<li><a class="reference internal" href="#id13">12.1 Processing steps</a></li>
-<li><a class="reference internal" href="#run-cell-cell-interactions">12.2 Run cell-cell interactions</a></li>
-<li><a class="reference internal" href="#visualize-cell-cell-interactions">12.3 Visualize cell-cell interactions</a></li>
-<li><a class="reference internal" href="#visualize-interactions-at-the-spatial-level">12.4 Visualize interactions at the spatial level</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#find-cell-cell-interaction-changed-genes-icg">13. Find cell-cell interaction changed genes (ICG)</a><ul>
-<li><a class="reference internal" href="#interaction-changed-genes">Interaction changed genes</a></li>
-<li><a class="reference internal" href="#id14">13.1 Processing steps</a></li>
-<li><a class="reference internal" href="#run-interaction-changed-genes-icg">13.2 Run Interaction Changed Genes (ICG)</a></li>
-<li><a class="reference internal" href="#filter-icgs">13.3 Filter ICGs</a></li>
-<li><a class="reference internal" href="#visualize-selected-icg">13.4 Visualize selected ICG</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#enriched-or-depleted-ligand-receptor-interactions">14. Identify enriched or depleted ligand-receptor interactions in hetero and homo-typic cell interactions</a><ul>
-<li><a class="reference internal" href="#id15">14.1 Processing steps</a></li>
-<li><a class="reference internal" href="#run-ligand-receptor-signaling">14.2 Run Ligand Receptor signaling</a></li>
-<li><a class="reference internal" href="#plot-ligand-receptor-signaling-results">14.3 Plot ligand receptor signaling results</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#export-giotto-results-to-use-in-giotto-viewer">15. Export Giotto results to use in Giotto viewer</a></li>
-</ul>
-</div>
+
             
           
         </div>
@@ -246,7 +159,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="giotto-workflow-diagram">
-<h1>Giotto Workflow Diagram<a class="headerlink" href="#giotto-workflow-diagram" title="Permalink to this headline">¶</a></h1>
+<span id="giottoworkflowanalysespage"></span><h1>Giotto Workflow Diagram<a class="headerlink" href="#giotto-workflow-diagram" title="Permalink to this headline">¶</a></h1>
 <a class="reference internal image-reference" href="_images/diagram_giotto_workflow.png"><img alt="Diagram of Giotto Workflow" class="align-center" src="_images/diagram_giotto_workflow.png" style="width: 400px;" /></a>
 </div>
 <div class="section" id="giotto-workflow-analyses">

@@ -83,32 +83,16 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Changelog</a><ul>
-<li><a class="reference internal" href="#giotto-1-0-1-1-0-3">Giotto 1.0.1 - 1.0.3</a></li>
-<li><a class="reference internal" href="#giotto-1-0-0">Giotto 1.0.0</a></li>
-<li><a class="reference internal" href="#giotto-0-3-5">Giotto 0.3.5</a></li>
-<li><a class="reference internal" href="#giotto-0-3-2">Giotto 0.3.2</a></li>
-<li><a class="reference internal" href="#giotto-0-3-1">Giotto 0.3.1</a></li>
-<li><a class="reference internal" href="#giotto-0-3-0">Giotto 0.3.0</a></li>
-<li><a class="reference internal" href="#giotto-0-2-4">Giotto 0.2.4</a></li>
-<li><a class="reference internal" href="#giotto-0-2-3">Giotto 0.2.3</a></li>
-<li><a class="reference internal" href="#giotto-0-2-2">Giotto 0.2.2</a></li>
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#description">Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#requirements">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#workflow-diagram">Workflow Diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#howtos">HowTos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#giotto-workflow-analyses"><span class="xref std std-doc">Giotto Workflow Analyses</span></a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#contact">Contact</a></li>
-<li><a class="reference internal" href="#how-to-contribute">How to Contribute?</a><ul>
-<li><a class="reference internal" href="#coding-style">Coding Style</a></li>
-<li><a class="reference internal" href="#stat-functions">Stat Functions</a></li>
-<li><a class="reference internal" href="#auxiliary-functions">Auxiliary Functions</a></li>
-<li><a class="reference internal" href="#accessors">Accessors</a></li>
-<li><a class="reference internal" href="#python-code">Python code</a></li>
-<li><a class="reference internal" href="#example">Example</a></li>
-</ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>
@@ -175,7 +159,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="changelog">
-<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<span id="addedinformation"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="giotto-1-0-1-1-0-3">
 <h2>Giotto 1.0.1 - 1.0.3<a class="headerlink" href="#giotto-1-0-1-1-0-3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -271,7 +255,7 @@ cell interactions</p></li>
 <div class="section" id="giotto-0-3-5">
 <h2>Giotto 0.3.5<a class="headerlink" href="#giotto-0-3-5" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>background images See <a class="reference external" href="../articles/howto_images.html">howto’s</a></p></li>
+<li><p>background images See <a class="reference internal" href="gettingstarted.html#howtos"><span class="std std-ref">HowTos</span></a> for more information!</p></li>
 <li><p>support for sparse matrices</p></li>
 <li><p>PCA can be calculated with the packages irlba (default) or factominer
 (old default)</p></li>
@@ -288,8 +272,7 @@ spatial grids and networks</p></li>
 <div class="section" id="giotto-0-3-2">
 <h2>Giotto 0.3.2<a class="headerlink" href="#giotto-0-3-2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>added voronoi plots to use in spatial plotting. See
-<a class="reference external" href="../articles/howto_voronoi_plots.html">howto’s</a></p></li>
+<li><p>added voronoi plots to use in spatial plotting. See <a class="reference internal" href="gettingstarted.html#howtos"><span class="std std-ref">HowTos</span></a> for more informaiton.</p></li>
 <li><p>generalized visualization parameters between functions</p></li>
 </ul>
 </div>
@@ -329,7 +312,7 @@ testing:</p>
 <li><p>Default spatial network created with <strong>createSpatialNetwork</strong> is now
 a Delaunay spatial network.</p></li>
 </ul>
-<!-- end list --><div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># to create the old default kNN spatial network use:</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># to create the old default kNN spatial network use:</span>
 <span class="nf">createSpatialKNNnetwork</span><span class="p">(</span><span class="n">gobject</span><span class="p">)</span>
 
 <span class="c1"># or use this function with the following setting</span>
@@ -339,7 +322,7 @@ a Delaunay spatial network.</p></li>
 <ul class="simple">
 <li><p>The function names for extracting spatial genes have changed:</p></li>
 </ul>
-<!-- end list --><div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># binGetSpatialGenes is now:</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># binGetSpatialGenes is now:</span>
 <span class="nf">binSpect</span><span class="p">(</span><span class="n">gobject</span><span class="p">)</span> <span class="c1"># binary Spatial extraction</span>
 
 <span class="c1"># spatial_genes_python is now:</span>
@@ -350,7 +333,7 @@ a Delaunay spatial network.</p></li>
 <li><p>Fixed multiple bugs</p></li>
 <li><p>Improved speed by changing code to Rcpp and implementing
 parallelization options</p></li>
-<li><p>updated <a class="reference external" href="../articles/getting_started.html">howto’s</a> tutorials in
+<li><p>updated <a class="reference internal" href="gettingstarted.html#howtos"><span class="std std-ref">HowTos</span></a> tutorials in
 Start section</p></li>
 <li><p>Finished the analysis of 10 different spatial datasets (tutorials are
 a work-in-progress)</p></li>
@@ -406,9 +389,12 @@ saving your plots (<strong>NEW</strong>)</p></li>
 <p>Browse source code here:        <a class="reference external" href="https://​github.com/​RubD/​Giotto/​">https://​github.com/​RubD/​Giotto/​</a></p>
 <p>Report a bug at: <a class="reference external" href="https://​github.com/​RubD/​Giotto/​issues">https://​github.com/​RubD/​Giotto/​issues</a></p>
 </div>
+<div class="section" id="contribute">
+<h1>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="how-to-contribute">
-<h1>How to Contribute?<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h1>
+<h2>How to contribute?<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h2>
 <p>We welcome contributions or suggestions from other developers. Below, we provide a number of rules, suggestions and tips to help you contribute to Giotto in a sustainable manner. Please contact us if you have questions or would like to discuss an addition or major modifications to the Giotto main code.</p>
+</div>
 <div class="section" id="coding-style">
 <h2>Coding Style<a class="headerlink" href="#coding-style" title="Permalink to this headline">¶</a></h2>
 <p>Following a particular programming style will help programmers read and
@@ -553,94 +539,93 @@ algorithm.</p>
 method developed by <a class="reference external" href="https://doi.org/10.1038/s41592-019-0701-7">Sun et
 al</a> and provide some
 comments within the code.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> spark = function(gobject,
-                percentage = 0.1,
-                min_count = 10,
-                expression_values = &#39;raw&#39;,
-                num_core = 5,
-                covariates = NULL,
-                return_object = &#39;data.table&#39;,
-                ...) {
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>spark = function(gobject,
+               percentage = 0.1,
+               min_count = 10,
+               expression_values = &#39;raw&#39;,
+               num_core = 5,
+               covariates = NULL,
+               return_object = &#39;data.table&#39;,
+               ...) {
 
- # data.table variables; this is necessary when setting new variables within a data.table
- genes =  adjusted_pvalue = combined_pvalue = NULL
+# data.table variables; this is necessary when setting new variables within a data.table
+genes =  adjusted_pvalue = combined_pvalue = NULL
 
- # test if SPARK is installed
- # if false, it will suggest how to install SPARK
- package_check(pkg_name = &#39;SPARK&#39;,
-               repository = c(&#39;github&#39;),
-               github_repo = &#39;xzhoulab/SPARK&#39;)
-
-
- # print message with information and encouraging users to cite the authors their work
- message(&quot;using &#39;SPARK&#39; for spatial gene/pattern detection. If used in published research, please cite:
- Sun, Shiquan, Jiaqiang Zhu, and Xiang Zhou. “Statistical Analysis of Spatial Expression Pattern for Spatially Resolved Transcriptomic Studies.”
-         BioRxiv, October 21, 2019, 810903. https://doi.org/10.1101/810903.&quot;)
+# test if SPARK is installed
+# if false, it will suggest how to install SPARK
+package_check(pkg_name = &#39;SPARK&#39;,
+              repository = c(&#39;github&#39;),
+              github_repo = &#39;xzhoulab/SPARK&#39;)
 
 
- # extract expression values from gobject using one of the accessors
- expr = select_expression_values(gobject = gobject, values = expression_values)
-
- # extract coordinates from gobject
- # check the different slots of the giotto S4 object
- locs = as.data.frame(gobject@spatial_locs)
- rownames(locs) = colnames(expr)
+# print message with information and encouraging users to cite the authors their work
+message(&quot;using &#39;SPARK&#39; for spatial gene/pattern detection. If used in published research, please cite:
+Sun, Shiquan, Jiaqiang Zhu, and Xiang Zhou. “Statistical Analysis of Spatial Expression Pattern for Spatially Resolved Transcriptomic Studies.”
+        BioRxiv, October 21, 2019, 810903. https://doi.org/10.1101/810903.&quot;)
 
 
- # Here we implemented spark according to their github example code:
+# extract expression values from gobject using one of the accessors
+expr = select_expression_values(gobject = gobject, values = expression_values)
 
- # create SPARK object for analysis and filter out lowly expressed genes
- sobject = SPARK::CreateSPARKObject(counts = expr,
-                                    location = locs[,1:2],
-                                    percentage = percentage,
-                                    min_total_counts = min_count)
+# extract coordinates from gobject
+# check the different slots of the giotto S4 object
+locs = as.data.frame(gobject@spatial_locs)
+rownames(locs) = colnames(expr)
 
- # total counts for each cell
- sobject@lib_size = apply(sobject@counts, 2, sum)
 
- # extract covariates to adjust for from the cell metadata
- if(!is.null(covariates)) {
+# Here we implemented spark according to their github example code:
 
-   # first filter giotto object based on spark object
-   filter_cell_ids = colnames(sobject@counts)
-   filter_gene_ids = rownames(sobject@counts)
-   tempgobject = subsetGiotto(gobject, cell_ids = filter_cell_ids, gene_ids = filter_gene_ids)
+# create SPARK object for analysis and filter out lowly expressed genes
+sobject = SPARK::CreateSPARKObject(counts = expr,
+                                   location = locs[,1:2],
+                                   percentage = percentage,
+                                   min_total_counts = min_count)
 
-   metadata = pDataDT(tempgobject)
+# total counts for each cell
+sobject@lib_size = apply(sobject@counts, 2, sum)
 
-   if(!covariates %in% colnames(metadata)) {
-     warning(covariates, &#39; was not found in the cell metadata of the giotto object, will be set to NULL \n&#39;)
-     covariates = NULL
-   } else {
-     covariates = metadata[[covariates]]
-   }
- }
+# extract covariates to adjust for from the cell metadata
+if(!is.null(covariates)) {
 
- # Fit statistical model under null hypothesis
- sobject = SPARK::spark.vc(sobject,
-                           covariates = covariates,
-                           lib_size = sobject@lib_size,
-                           num_core = num_core,
-                           verbose = F,
-                           ...)
+  # first filter giotto object based on spark object
+  filter_cell_ids = colnames(sobject@counts)
+  filter_gene_ids = rownames(sobject@counts)
+  tempgobject = subsetGiotto(gobject, cell_ids = filter_cell_ids, gene_ids = filter_gene_ids)
 
- # test spatially expressed pattern genes
- # calculating pval
- sobject = SPARK::spark.test(sobject,
-                             check_positive = T,
-                             verbose = F)
+  metadata = pDataDT(tempgobject)
 
- # return results
- # return full output or a simple data.table format with the essental information
- if(return_object == &#39;spark&#39;){
-   return(sobject)
- } else if(return_object == &#39;data.table&#39;){
-   DT_results = data.table::as.data.table(sobject@res_mtest)
-   gene_names = rownames(sobject@counts)
-   DT_results[, genes := gene_names]
-   data.table::setorder(DT_results, adjusted_pvalue, combined_pvalue)
-   return(DT_results)
- }
+  if(!covariates %in% colnames(metadata)) {
+    warning(covariates, &#39; was not found in the cell metadata of the giotto object, will be set to NULL \n&#39;)
+    covariates = NULL
+  } else {
+    covariates = metadata[[covariates]]
+  }
+}
+
+# Fit statistical model under null hypothesis
+sobject = SPARK::spark.vc(sobject,
+                          covariates = covariates,
+                          lib_size = sobject@lib_size,
+                          num_core = num_core,
+                          verbose = F,
+                          ...)
+
+# test spatially expressed pattern genes
+# calculating pval
+sobject = SPARK::spark.test(sobject,
+                            check_positive = T,
+                            verbose = F)
+
+# return results
+# return full output or a simple data.table format with the essental information
+if(return_object == &#39;spark&#39;){
+  return(sobject)
+} else if(return_object == &#39;data.table&#39;){
+  DT_results = data.table::as.data.table(sobject@res_mtest)
+  gene_names = rownames(sobject@counts)
+  DT_results[, genes := gene_names]
+  data.table::setorder(DT_results, adjusted_pvalue, combined_pvalue)
+  return(DT_results)
 }
 </pre></div>
 </div>

@@ -1,4 +1,4 @@
-
+.. _gettingstartedpage: 
 
 Getting Started 
 ==========================================================
@@ -38,8 +38,11 @@ Requirements
 
 .. _Windows, MacOS or Linux specific installation tools.: https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites
 
+
+
 Installation
 ===================
+
 
 R Installation 
 ------------------------------------------------------------
@@ -47,7 +50,7 @@ First Time R Package Installation
 ------------------------------------------------------------
 *Package Development Requirements*
 
-If this is the first time you build and install an R package you can follow this `link <https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites>`_, which has simple installation instructions for Windows, Mac OSX and Linux.
+If this is the first time you build and install an R package you can follow `this link <https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites>`_, which has simple installation instructions for Windows, Mac OSX and Linux.
 
 To specifically install the command-line tools of Xcode for Mac OSX you might also need to run this line **in terminal**:
 
@@ -155,6 +158,8 @@ If pip install does not work, try installing them within a `conda environment <h
 Workflow Diagram 
 ================================================================
 
+.. _howtos:
+
 HowTos
 ================================================================
 Giotto provides a lot of analyses, visualizations and other options to facilitate your spatial dataset analysis. We are working on providing easy-to-understand examples or tutorials, but if anything is not clear or if there is something you would like to see in particular, then do not hesitate to `contact us.`_
@@ -198,8 +203,6 @@ Giotto Tips and Tricks
 * :ref:`Adding and Working with Images in Giotto <working-with-giotto-images>`
 
 
-See `FAQs`_ for more information.
+See :ref:`FAQs <faqs>` for more information.
 --------------------------------------------------------------
-
-.. _FAQs:
 

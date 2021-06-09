@@ -1,3 +1,5 @@
+.. _giottoworkflowanalysespage: 
+
 Giotto Workflow Diagram
 ====================================================================
 

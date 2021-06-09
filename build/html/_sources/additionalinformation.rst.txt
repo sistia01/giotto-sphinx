@@ -1,3 +1,5 @@
+.. _addedinformation: 
+
 Changelog
 ====================
 
@@ -88,7 +90,7 @@ them in your own favorite Python environment and provide the path in the
 Giotto 0.3.5
 -----------------------
 
--  background images See `howto’s <../articles/howto_images.html>`__
+-  background images See :ref:`HowTos <howtos>` for more information!
 -  support for sparse matrices
 -  PCA can be calculated with the packages irlba (default) or factominer
    (old default)
@@ -104,8 +106,7 @@ Giotto 0.3.5
 Giotto 0.3.2
 -----------------------
 
--  added voronoi plots to use in spatial plotting. See
-   `howto’s <../articles/howto_voronoi_plots.html>`__
+-  added voronoi plots to use in spatial plotting. See :ref:`HowTos <howtos>` for more informaiton.
 -  generalized visualization parameters between functions
 
 Giotto 0.3.1
@@ -142,10 +143,6 @@ Giotto 0.3.0
 -  Default spatial network created with **createSpatialNetwork** is now
    a Delaunay spatial network.
 
-.. raw:: html
-
-   <!-- end list -->
-
 .. code:: r
 
     # to create the old default kNN spatial network use:
@@ -155,10 +152,6 @@ Giotto 0.3.0
     createSpatialNetwork(gobject, method = 'kNN')
 
 -  The function names for extracting spatial genes have changed:
-
-.. raw:: html
-
-   <!-- end list -->
 
 .. code:: r
 
@@ -171,7 +164,7 @@ Giotto 0.3.0
 -  Fixed multiple bugs
 -  Improved speed by changing code to Rcpp and implementing
    parallelization options
--  updated `howto’s <../articles/getting_started.html>`__ tutorials in
+-  updated :ref:`HowTos <howtos>` tutorials in
    Start section
 -  Finished the analysis of 10 different spatial datasets (tutorials are
    a work-in-progress)
@@ -224,9 +217,11 @@ Browse source code here:	`https://​github.com/​RubD/​Giotto/​ <https://�
 
 Report a bug at: `https://​github.com/​RubD/​Giotto/​issues <https://​github.com/​RubD/​Giotto/​issues>`_
 
-How to Contribute?
+Contribute
 ===================================
 
+How to contribute?
+--------------------
 We welcome contributions or suggestions from other developers. Below, we provide a number of rules, suggestions and tips to help you contribute to Giotto in a sustainable manner. Please contact us if you have questions or would like to discuss an addition or major modifications to the Giotto main code.
 
 Coding Style
@@ -332,7 +327,7 @@ algorithm.
 
 1. write python wrapper and store as python_leiden.py in */inst/python*:
 
-::
+.. code-block::
 	
    import igraph as ig 
    import leidenalg as la
@@ -355,7 +350,7 @@ algorithm.
 
 2. Source python code with reticulate:  
 
-::
+.. code-block::
 
 
    python_leiden_function = system.file("python", "python_leiden.py", package = 'Giotto')
@@ -366,7 +361,7 @@ algorithm.
 
 *See **doLeidenCLuster** for more detailed information* 
 
-::
+.. code-block::
 
  pyth_leid_result = python_leiden(df = network_edge_dt,
                                    partition_type = partition_type,
@@ -385,7 +380,7 @@ al <https://doi.org/10.1038/s41592-019-0701-7>`__ and provide some
 comments within the code.
 
 
-::
+.. code-block::
 
   spark = function(gobject,
                  percentage = 0.1,
@@ -475,4 +470,4 @@ comments within the code.
     data.table::setorder(DT_results, adjusted_pvalue, combined_pvalue)
     return(DT_results)
   }
- }
+
