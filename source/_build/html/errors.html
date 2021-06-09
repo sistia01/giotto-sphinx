@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>FAQs and Solutions to Errors &mdash; Giotto 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Giotto
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">FAQs and Solutions to Errors</a></li>
+<li><a class="reference internal" href="#errors-on-macos">Errors on MacOS</a><ul>
+<li><a class="reference internal" href="#issue-1-clang-error">Issue 1: Clang Error</a></li>
+<li><a class="reference internal" href="#issue-2-clang-error">Issue 2: Clang Error</a></li>
+<li><a class="reference internal" href="#issue-3-r-3-6-3-and-macos-catalina">Issue 3: R 3.6.3 and MacOS Catalina</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#errors-on-windows">Errors on Windows</a><ul>
+<li><a class="reference internal" href="#issue-1-make-not-found-error-on-windows">Issue 1: ‘Make’ not found error on windows</a></li>
+<li><a class="reference internal" href="#issue-2-error-converted-from-warning">Issue 2: Error Converted from Warning</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tips-and-tricks">Tips and Tricks</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Giotto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>FAQs and Solutions to Errors</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/errors.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="faqs-and-solutions-to-errors">
+<h1>FAQs and Solutions to Errors<a class="headerlink" href="#faqs-and-solutions-to-errors" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="errors-on-macos">
+<h1>Errors on MacOS<a class="headerlink" href="#errors-on-macos" title="Permalink to this headline">¶</a></h1>
+<p>Some of the errors outlined below might arise because of issues with building Giotto from source.
+The Giotto branch <strong>cless</strong> is a version of Giotto without C++ code, which should fix many of the installation errors.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">remotes</span><span class="p">::</span><span class="n">install_github</span><span class="p">(</span><span class="s2">&quot;RubD/Giotto@cless&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="issue-1-clang-error">
+<h2>Issue 1: Clang Error<a class="headerlink" href="#issue-1-clang-error" title="Permalink to this headline">¶</a></h2>
+<p>If you see this error on your MacOS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>clang: error: unsupported option ‘-fopenmp’
+</pre></div>
+</div>
+<p>You can install another clang and point R to use that clang, which supports the -fopenmp paramter. This solution was provided <a class="reference external" href="https://stackoverflow.com/questions/43595457/alternate-compiler-for-installing-r-packages-clang-error-unsupported-option">on stackoverflow</a>.</p>
+<ol class="arabic simple">
+<li><p>Install llvm on your mac</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">llvm</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Create a Makevars File</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">touch</span> <span class="o">~/.</span><span class="n">R</span><span class="o">/</span><span class="n">Makevars</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Add these lines to the Makevars File</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># comment out first line &#39;CC= ... if there are errors with compiling a package</span>
+<span class="n">CC</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">llvm</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">clang</span> <span class="o">-</span><span class="n">fopenmp</span>
+<span class="n">CXX</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">llvm</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">clang</span><span class="o">++</span>
+
+<span class="c1"># Also potentially CXX11 (for C++11 compiler)</span>
+<span class="n">CXX11</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">llvm</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">clang</span><span class="o">++</span>
+
+<span class="c1"># -O3 should be faster than -O2 (default) level optimisation ..</span>
+<span class="n">CFLAGS</span><span class="o">=-</span><span class="n">g</span> <span class="o">-</span><span class="n">O3</span> <span class="o">-</span><span class="n">Wall</span> <span class="o">-</span><span class="n">pedantic</span> <span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">gnu99</span> <span class="o">-</span><span class="n">mtune</span><span class="o">=</span><span class="n">native</span> <span class="o">-</span><span class="n">pipe</span>
+<span class="n">CXXFLAGS</span><span class="o">=-</span><span class="n">g</span> <span class="o">-</span><span class="n">O3</span> <span class="o">-</span><span class="n">Wall</span> <span class="o">-</span><span class="n">pedantic</span> <span class="o">-</span><span class="n">std</span><span class="o">=</span><span class="n">c</span><span class="o">++</span><span class="mi">11</span> <span class="o">-</span><span class="n">mtune</span><span class="o">=</span><span class="n">native</span> <span class="o">-</span><span class="n">pipe</span>
+<span class="n">LDFLAGS</span><span class="o">=-</span><span class="n">L</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">gettext</span><span class="o">/</span><span class="n">lib</span> <span class="o">-</span><span class="n">L</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">llvm</span><span class="o">/</span><span class="n">lib</span> <span class="o">-</span><span class="n">Wl</span><span class="p">,</span><span class="o">-</span><span class="n">rpath</span><span class="p">,</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">llvm</span><span class="o">/</span><span class="n">lib</span>
+<span class="n">CPPFLAGS</span><span class="o">=-</span><span class="n">I</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">gettext</span><span class="o">/</span><span class="n">include</span> <span class="o">-</span><span class="n">I</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">llvm</span><span class="o">/</span><span class="n">include</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="issue-2-clang-error">
+<h2>Issue 2: Clang Error<a class="headerlink" href="#issue-2-clang-error" title="Permalink to this headline">¶</a></h2>
+<p>If you see this error on your MacOS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="n">message</span><span class="p">:</span>
+<span class="n">ld</span><span class="p">:</span> <span class="n">warning</span><span class="p">:</span> <span class="n">directory</span> <span class="ow">not</span> <span class="n">found</span> <span class="k">for</span> <span class="n">option</span> <span class="s1">&#39;-L/usr/local/gfortran/lib/gcc/x86_64-apple-darwin15/6.1.0&#39;</span>
+<span class="n">ld</span><span class="p">:</span> <span class="n">warning</span><span class="p">:</span> <span class="n">directory</span> <span class="ow">not</span> <span class="n">found</span> <span class="k">for</span> <span class="n">option</span> <span class="s1">&#39;-L/usr/local/gfortran/lib&#39;</span>
+<span class="n">ld</span><span class="p">:</span> <span class="n">library</span> <span class="ow">not</span> <span class="n">found</span> <span class="k">for</span> <span class="o">-</span><span class="n">lgfortran</span>
+<span class="n">clang</span><span class="o">-</span><span class="mi">9</span><span class="p">:</span> <span class="n">error</span><span class="p">:</span> <span class="n">linker</span> <span class="n">command</span> <span class="n">failed</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">1</span> <span class="p">(</span><span class="n">use</span> <span class="o">-</span><span class="n">v</span> <span class="n">to</span> <span class="n">see</span> <span class="n">invocation</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Solution</strong>: Install the latest version of gofortran: <a class="reference external" href="https://github.com/fxcoudert/gfortran-for-macOS/releases/download/8.2/gfortran-8.2-Mojave.dmg">https://github.com/fxcoudert/gfortran-for-macOS/releases/download/8.2/gfortran-8.2-Mojave.dmg</a></p>
+<p><a class="reference external" href="https://stackoverflow.com/questions/35999874/mac-os-x-r-error-ld-warning-directory-not-found-for-option">Solution Reference Source:</a></p>
+<p><em>“I am having Mac OS Catalina and in my case installation of Homebrew, the newest gcc and Gfortran 8.2.0 solved the issue.” – Magda Orzechowska</em></p>
+<p><em>“This worked for me in Mac OS Catalina as well! I used the gfortran 8.2 Mojave installation github.com/fxcoudert/gfortran-for-macOS/releases” – Danny</em></p>
+</div>
+<div class="section" id="issue-3-r-3-6-3-and-macos-catalina">
+<h2>Issue 3: R 3.6.3 and MacOS Catalina<a class="headerlink" href="#issue-3-r-3-6-3-and-macos-catalina" title="Permalink to this headline">¶</a></h2>
+<p>If you use the latest MacOS ‘Catalina’ and the latest R version 3.6.3 then you will need to install Clang 7.0.0 and GNU Fortran 6.1 <a class="reference external" href="https://cran.rstudio.com/bin/macosx/">as per instructions</a>.</p>
+<p>Additionally, you might have to specify some flags in “~/.R/Makevars”</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># clang: start</span>
+<span class="n">CFLAGS</span><span class="o">=-</span><span class="n">isysroot</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Developer</span><span class="o">/</span><span class="n">CommandLineTools</span><span class="o">/</span><span class="n">SDKs</span><span class="o">/</span><span class="n">MacOSX</span><span class="o">.</span><span class="n">sdk</span>
+<span class="n">CCFLAGS</span><span class="o">=-</span><span class="n">isysroot</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Developer</span><span class="o">/</span><span class="n">CommandLineTools</span><span class="o">/</span><span class="n">SDKs</span><span class="o">/</span><span class="n">MacOSX</span><span class="o">.</span><span class="n">sdk</span>
+<span class="n">CXXFLAGS</span><span class="o">=-</span><span class="n">isysroot</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Developer</span><span class="o">/</span><span class="n">CommandLineTools</span><span class="o">/</span><span class="n">SDKs</span><span class="o">/</span><span class="n">MacOSX</span><span class="o">.</span><span class="n">sdk</span>
+<span class="n">CPPFLAGS</span><span class="o">=-</span><span class="n">isysroot</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Developer</span><span class="o">/</span><span class="n">CommandLineTools</span><span class="o">/</span><span class="n">SDKs</span><span class="o">/</span><span class="n">MacOSX</span><span class="o">.</span><span class="n">sdk</span>
+<span class="c1"># clang: end</span>
+</pre></div>
+</div>
+<p><em>We hope that these issues will be resolved soon.</em></p>
+</div>
+</div>
+<div class="section" id="errors-on-windows">
+<h1>Errors on Windows<a class="headerlink" href="#errors-on-windows" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="issue-1-make-not-found-error-on-windows">
+<h2>Issue 1: ‘Make’ not found error on windows<a class="headerlink" href="#issue-1-make-not-found-error-on-windows" title="Permalink to this headline">¶</a></h2>
+<p>If you encounter this error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Error in system(cmd) : (converted from warning) ‘make’ not found
+</pre></div>
+</div>
+<p><strong>Solution:</strong> <a class="reference external" href="https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites">Install the necessary package development tools.</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## make sure Rtools is visible (from within R)</span>
+<span class="c1">## you can set the paths manually</span>
+<span class="n">Sys</span><span class="o">.</span><span class="n">setenv</span><span class="p">(</span><span class="n">PATH</span> <span class="o">=</span> <span class="n">paste</span><span class="p">(</span><span class="s2">&quot;C:/Rtools/bin&quot;</span><span class="p">,</span><span class="s2">&quot;C:/Rtools/mingw_64/bin&quot;</span><span class="p">,</span> <span class="n">Sys</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;PATH&quot;</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">))</span>
+<span class="n">Sys</span><span class="o">.</span><span class="n">setenv</span><span class="p">(</span><span class="n">BINPREF</span> <span class="o">=</span> <span class="s2">&quot;C:/Rtools/mingw_$(WIN)/bin/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="issue-2-error-converted-from-warning">
+<h2>Issue 2: Error Converted from Warning<a class="headerlink" href="#issue-2-error-converted-from-warning" title="Permalink to this headline">¶</a></h2>
+<p>If you encounter this or similar error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span><span class="p">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">install</span> <span class="s1">&#39;Giotto&#39;</span> <span class="kn">from</span> <span class="nn">GitHub</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">converted</span> <span class="kn">from</span> <span class="nn">warning</span><span class="p">)</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p><strong>Solution:</strong> Make sure Rtools is installed</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## avoid converting warnings to errors by setting this environment variable to true (from within R)</span>
+<span class="n">Sys</span><span class="o">.</span><span class="n">setenv</span><span class="p">(</span><span class="s2">&quot;R_REMOTES_NO_ERRORS_FROM_WARNINGS&quot;</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+
+<span class="n">library</span><span class="p">(</span><span class="n">devtools</span><span class="p">)</span> <span class="c1"># if not installed do install.package(&#39;devtools&#39;)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">remotes</span><span class="p">)</span> <span class="c1"># if not installed do install.package(&#39;remotes&#39;)</span>
+<span class="n">remotes</span><span class="p">::</span><span class="n">install_github</span><span class="p">(</span><span class="s2">&quot;RubD/Giotto&quot;</span><span class="p">,</span> <span class="n">build_vignettes</span> <span class="o">=</span> <span class="n">F</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tips-and-tricks">
+<h1>Tips and Tricks<a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Different ways of subsetting Giotto results?</p></li>
+<li><p>How to create global instructions and show or save your created plots?</p></li>
+<li><p>Different ways to visualize your spatial data?</p></li>
+<li><p>How to test and store multiple parameters or analyses?</p></li>
+<li><p>Visualize spatial data with voronoi plots</p></li>
+<li><p>Adding and working with images in Giotto</p></li>
+<li><p>Working with the Giotto class</p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Ruben Dries, Qian Zhu, Huipeng Li, Rui Dong, Guo-Cheng Yuan.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

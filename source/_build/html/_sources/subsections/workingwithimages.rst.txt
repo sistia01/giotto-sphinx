@@ -1,0 +1,54 @@
+.. _Adding and Working with Images in Giotto:
+
+Adding and Working with Images in Giotto: How to Work with Background Images?
+==============================================================================
+
+All spatial visualization functions in the Giotto toolbox can be overlaid on a background image. This allows you to visualize your results on top of the original tissue image. We provide multiple ways of adding and modifying figures in Giotto. 
+
+In short there are 3 things to consider:
+1. How to add an image to a Giotto object?
+
+* **createGiottoVisiumObject** can be used directly for a visium 10X dataset
+* **createGiottoImage** can be used to create a Giotto image object from a magick image object
+* **addGiottoImage** this add a Giotto image to your Giotto object
+* **updateGiottoImage** this helps to adjust the alignment of your image with your results
+
+
+2. How to modify an image (i.e. change the background color)?
+* **estimateImageBg** function to estimage the background color of your Giotto or magick image
+* **changeImageBg** function to change the background color of your image
+* **plotGiottoImage** function to plot an image by itself
+3. How to show these images with your spatial plots?
+* ** ** this tells you which giotto image(s) are part of your giotto object
+
+
+* Each spatial plotting function has the following 3 parameters:
+
+  * show_image = TRUE or FALSE, to show a background image or not
+  * image_name = name of associated Giotto image to use for the background image (option 1)
+  * gimage = a giotto image object to use (option 2)
+
+* **addGiottoImageToSpatPlot** to test your giotto images you can use this function to them to spatPlot result
+
+Here we process the Visium Kidney dataset to illustrate all the different and flexible ways to deal with images:
+
+1. Create Giotto Object
+==========================
+Here we use the wrapper function createGiottoVisiumObject to create a Giotto object for a 10X Visium dataset, which includes a png image.
+
+.. code-block::
+    
+    library(Giotto)
+
+    visium_kidney = createGiottoVisiumObject(visium_dir = '/path/to/Visium_data/Kidney_data',
+                                         png_name = 'tissue_lowres_image.png', gene_column_index = 2)
+
+
+2. Align Plot
+================
+The image plot and the Giotto results are not always perfectly aligned. This step just needs to be done once.
+
+.. code-block::
+
+    # output from Giotto
+    spatPlot(gobject = visium_kidney, cell_color = 'in_tissue', point_alpha = 0.5)

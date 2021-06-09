@@ -1,0 +1,616 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Adding and Working with Images in Giotto: How to Work with Background Images? &mdash; Giotto 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Giotto
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Adding and Working with Images in Giotto: How to Work with Background Images?</a></li>
+<li><a class="reference internal" href="#create-giotto-object">1. Create Giotto Object</a></li>
+<li><a class="reference internal" href="#align-plot">2. Align Plot</a><ul>
+<li><a class="reference internal" href="#alignment-insights">Alignment Insights</a></li>
+<li><a class="reference internal" href="#x-and-y-control">X and Y Control</a></li>
+<li><a class="reference internal" href="#without-adjustment">Without adjustment:</a></li>
+<li><a class="reference internal" href="#right-adjustment-with-xmax-adj">Right Adjustment –&gt; with xmax_adj:</a></li>
+<li><a class="reference internal" href="#left-adjustment-with-xmin-adj">Left Adjustment &lt;– with xmin_adj:</a></li>
+<li><a class="reference internal" href="#adjustment-to-the-top-with-ymax-adj">Adjustment to the Top with ymax_adj:</a></li>
+<li><a class="reference internal" href="#simulation-of-shifts">Simulation of shifts</a></li>
+<li><a class="reference internal" href="#a-good-alignment">A Good Alignment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#change-background-of-a-giotto-or-magick-image">3. Change Background of a Giotto or Magick Image</a></li>
+<li><a class="reference internal" href="#add-image-from-scratch">4. Add Image From Scratch</a></li>
+<li><a class="reference internal" href="#example-kidney-analysis">5. Example Kidney Analysis</a><ul>
+<li><a class="reference internal" href="#processing">5.1 Processing</a></li>
+<li><a class="reference internal" href="#dimensionality-reduction">5.2 Dimensionality Reduction</a></li>
+<li><a class="reference internal" href="#cluster">5.2 Cluster</a></li>
+<li><a class="reference internal" href="#co-visualize">5.4 Co-Visualize</a></li>
+<li><a class="reference internal" href="#spatial-gene-plots">5.5 Spatial Gene Plots</a></li>
+<li><a class="reference internal" href="#subset-plots">5.6 Subset Plots</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Giotto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Adding and Working with Images in Giotto: How to Work with Background Images?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/subsections/tipsandtricks/workingwithimages.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="adding-and-working-with-images-in-giotto-how-to-work-with-background-images">
+<span id="working-with-giotto-images"></span><h1>Adding and Working with Images in Giotto: How to Work with Background Images?<a class="headerlink" href="#adding-and-working-with-images-in-giotto-how-to-work-with-background-images" title="Permalink to this headline">¶</a></h1>
+<p>All spatial visualization functions in the Giotto toolbox can be overlaid on a background image. This allows you to visualize your results on top of the original tissue image. We provide multiple ways of adding and modifying figures in Giotto.</p>
+<p>In short there are 3 things to consider:
+1. How to add an image to a Giotto object?</p>
+<ul class="simple">
+<li><p><strong>createGiottoVisiumObject</strong> can be used directly for a visium 10X dataset</p></li>
+<li><p><strong>createGiottoImage</strong> can be used to create a Giotto image object from a magick image object</p></li>
+<li><p><strong>addGiottoImage</strong> this add a Giotto image to your Giotto object</p></li>
+<li><p><strong>updateGiottoImage</strong> this helps to adjust the alignment of your image with your results</p></li>
+</ul>
+<p>2. How to modify an image (i.e. change the background color)?
+* <strong>estimateImageBg</strong> function to estimage the background color of your Giotto or magick image
+* <strong>changeImageBg</strong> function to change the background color of your image
+* <strong>plotGiottoImage</strong> function to plot an image by itself
+3. How to show these images with your spatial plots?
+* ** ** this tells you which giotto image(s) are part of your giotto object</p>
+<ul class="simple">
+<li><p>Each spatial plotting function has the following 3 parameters:</p>
+<ul>
+<li><p>show_image = TRUE or FALSE, to show a background image or not</p></li>
+<li><p>image_name = name of associated Giotto image to use for the background image (option 1)</p></li>
+<li><p>gimage = a giotto image object to use (option 2)</p></li>
+</ul>
+</li>
+<li><p><strong>addGiottoImageToSpatPlot</strong> to test your giotto images you can use this function to them to spatPlot result</p></li>
+</ul>
+<p>Here we process the Visium Kidney dataset to illustrate all the different and flexible ways to deal with images:</p>
+</div>
+<div class="section" id="create-giotto-object">
+<h1>1. Create Giotto Object<a class="headerlink" href="#create-giotto-object" title="Permalink to this headline">¶</a></h1>
+<p>Here we use the wrapper function createGiottoVisiumObject to create a Giotto object for a 10X Visium dataset, which includes a png image.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">Giotto</span><span class="p">)</span>
+
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">createGiottoVisiumObject</span><span class="p">(</span><span class="n">visium_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/Visium_data/Kidney_data&#39;</span><span class="p">,</span>
+                                     <span class="n">png_name</span> <span class="o">=</span> <span class="s1">&#39;tissue_lowres_image.png&#39;</span><span class="p">,</span> <span class="n">gene_column_index</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="align-plot">
+<h1>2. Align Plot<a class="headerlink" href="#align-plot" title="Permalink to this headline">¶</a></h1>
+<p>The image plot and the Giotto results are not always perfectly aligned. This step just needs to be done once.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># output from Giotto</span>
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># problem: image is not perfectly aligned</span>
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<p>Adjust the x and y minima and maxima to align the image and the giotto output results:</p>
+<div class="section" id="alignment-insights">
+<h2>Alignment Insights<a class="headerlink" href="#alignment-insights" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="x-and-y-control">
+<h2>X and Y Control<a class="headerlink" href="#x-and-y-control" title="Permalink to this headline">¶</a></h2>
+<p>We can use <strong>updateGiottoImage</strong> and <strong>spatPlot</strong> in an iterative manner to see how changing the x and y minima and maxima affect the image.</p>
+<p>xmax_adj and xmin_adj: adjust the x location (in data coordinates) giving horizontal location of raster (offset values)
+ymax_adj and ymin_adj: adjust the y location (in data coordinates) giving vertical location of raster (offset values)</p>
+</div>
+<div class="section" id="without-adjustment">
+<h2>Without adjustment:<a class="headerlink" href="#without-adjustment" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## no adjustment</span>
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">updateGiottoImage</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+                           <span class="n">xmax_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">xmin_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                            <span class="n">ymax_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ymin_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+</div>
+<div class="section" id="right-adjustment-with-xmax-adj">
+<h2>Right Adjustment –&gt; with xmax_adj:<a class="headerlink" href="#right-adjustment-with-xmax-adj" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## adjust the image to right side with xmax_adj</span>
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">updateGiottoImage</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+                                <span class="n">xmax_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">xmin_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                                <span class="n">ymax_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ymin_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+</div>
+<div class="section" id="left-adjustment-with-xmin-adj">
+<h2>Left Adjustment &lt;– with xmin_adj:<a class="headerlink" href="#left-adjustment-with-xmin-adj" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## adjust to left side with xmin_adj</span>
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">updateGiottoImage</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+                                  <span class="n">xmax_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">xmin_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+                                  <span class="n">ymax_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ymin_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+</div>
+<div class="section" id="adjustment-to-the-top-with-ymax-adj">
+<h2>Adjustment to the Top with ymax_adj:<a class="headerlink" href="#adjustment-to-the-top-with-ymax-adj" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## adjust to top side with ymax_adj</span>
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">updateGiottoImage</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+                          <span class="n">xmax_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">xmin_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                          <span class="n">ymax_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">ymin_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<p>Adjustment to the bottom with ymin_adj:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## adjust to bottom side with ymin_adj</span>
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">updateGiottoImage</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+                          <span class="n">xmax_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">xmin_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                          <span class="n">ymax_adj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ymin_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+</div>
+<div class="section" id="simulation-of-shifts">
+<h2>Simulation of shifts<a class="headerlink" href="#simulation-of-shifts" title="Permalink to this headline">¶</a></h2>
+<p>Create an OK adjustment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## OK alignment</span>
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">updateGiottoImage</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+                          <span class="n">xmax_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">xmin_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+                          <span class="n">ymax_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">ymin_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">patPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<p>Simulate a right shift and compare with the OK adjustment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## simulate a right shift</span>
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">updateGiottoImage</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+                          <span class="n">xmax_adj</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">xmin_adj</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+                          <span class="n">ymax_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">ymin_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<p>Simulate a right shift and compare with the OK adjustment:</p>
+<p><strong>ADD IMAGE</strong></p>
+<p>Simulate a downward shift and compare with the OK adjustment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## simulate a downward shift</span>
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">updateGiottoImage</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+                          <span class="n">xmax_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">xmin_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+                          <span class="n">ymax_adj</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="n">ymin_adj</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">)</span>
+
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<p>Simulate a upward shift and compare with the OK adjustment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## simulate a upward shift</span>
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">updateGiottoImage</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+                          <span class="n">xmax_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">xmin_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">,</span>
+                          <span class="n">ymax_adj</span> <span class="o">=</span> <span class="mi">2000</span><span class="p">,</span> <span class="n">ymin_adj</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>** ADD IMAGE**</p>
+</div>
+<div class="section" id="a-good-alignment">
+<h2>A Good Alignment<a class="headerlink" href="#a-good-alignment" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># check name</span>
+<span class="n">showGiottoImageNames</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">)</span>
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">updateGiottoImage</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+                    <span class="n">xmax_adj</span> <span class="o">=</span> <span class="mi">1300</span><span class="p">,</span> <span class="n">xmin_adj</span> <span class="o">=</span> <span class="mi">1200</span><span class="p">,</span>
+                    <span class="n">ymax_adj</span> <span class="o">=</span> <span class="mi">1100</span><span class="p">,</span> <span class="n">ymin_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot original image</span>
+<span class="n">plotGiottoImage</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="s1">&#39;image&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>** ADD IMAGE**</p>
+</div>
+</div>
+<div class="section" id="change-background-of-a-giotto-or-magick-image">
+<h1>3. Change Background of a Giotto or Magick Image<a class="headerlink" href="#change-background-of-a-giotto-or-magick-image" title="Permalink to this headline">¶</a></h1>
+<p>Extract the giotto image from your giotto object and then estimate the background of your image:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myimage</span> <span class="o">=</span> <span class="n">getGiottoImage</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image&#39;</span><span class="p">)</span> <span class="c1"># extract image to modify</span>
+<span class="n">estimateImageBg</span><span class="p">(</span><span class="n">mg_object</span> <span class="o">=</span> <span class="n">myimage</span><span class="p">,</span> <span class="n">top_color_range</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">20</span><span class="p">)</span>  <span class="c1"># estimate background (bg) color</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## create and test black background</span>
+<span class="n">orig_black_png</span> <span class="o">=</span> <span class="n">changeImageBg</span><span class="p">(</span><span class="n">mg_object</span> <span class="o">=</span> <span class="n">myimage</span><span class="p">,</span> <span class="n">bg_color</span> <span class="o">=</span> <span class="s1">&#39;#949594&#39;</span><span class="p">,</span> <span class="n">perc_range</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">new_color</span> <span class="o">=</span> <span class="s1">&#39;#000000&#39;</span><span class="p">,</span> <span class="n">new_name</span> <span class="o">=</span> <span class="s1">&#39;black_bg&#39;</span><span class="p">)</span>
+
+<span class="n">mypl</span> <span class="o">=</span> <span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">return_plot</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">mypl_image</span> <span class="o">=</span> <span class="n">addGiottoImageToSpatPlot</span><span class="p">(</span><span class="n">mypl</span><span class="p">,</span> <span class="n">orig_black_png</span><span class="p">)</span>
+<span class="n">mypl_image</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## create and test white background</span>
+<span class="n">orig_white_png</span> <span class="o">=</span> <span class="n">changeImageBg</span><span class="p">(</span><span class="n">mg_object</span> <span class="o">=</span> <span class="n">myimage</span><span class="p">,</span> <span class="n">bg_color</span> <span class="o">=</span> <span class="s1">&#39;#949594&#39;</span><span class="p">,</span> <span class="n">perc_range</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">new_color</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF&#39;</span><span class="p">,</span> <span class="n">new_name</span> <span class="o">=</span> <span class="s1">&#39;white_bg&#39;</span><span class="p">)</span>
+
+<span class="n">mypl</span> <span class="o">=</span> <span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">return_plot</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">mypl_image</span> <span class="o">=</span> <span class="n">addGiottoImageToSpatPlot</span><span class="p">(</span><span class="n">mypl</span><span class="p">,</span> <span class="n">orig_white_png</span><span class="p">)</span>
+<span class="n">mypl_image</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## create and test white background</span>
+<span class="n">orig_white_png</span> <span class="o">=</span> <span class="n">changeImageBg</span><span class="p">(</span><span class="n">mg_object</span> <span class="o">=</span> <span class="n">myimage</span><span class="p">,</span> <span class="n">bg_color</span> <span class="o">=</span> <span class="s1">&#39;#949594&#39;</span><span class="p">,</span> <span class="n">perc_range</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">new_color</span> <span class="o">=</span> <span class="s1">&#39;#FFFFFF&#39;</span><span class="p">,</span> <span class="n">new_name</span> <span class="o">=</span> <span class="s1">&#39;white_bg&#39;</span><span class="p">)</span>
+
+<span class="n">mypl</span> <span class="o">=</span> <span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">return_plot</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">mypl_image</span> <span class="o">=</span> <span class="n">addGiottoImageToSpatPlot</span><span class="p">(</span><span class="n">mypl</span><span class="p">,</span> <span class="n">orig_white_png</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+</div>
+<div class="section" id="add-image-from-scratch">
+<h1>4. Add Image From Scratch<a class="headerlink" href="#add-image-from-scratch" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## use magick library to load (and optionally modify) figure ##</span>
+<span class="c1"># original image</span>
+<span class="n">png_path</span> <span class="o">=</span> <span class="s1">&#39;/your/data/path/Visium_data/Kidney_data/spatial/tissue_lowres_image.png&#39;</span>
+<span class="n">mg_img</span> <span class="o">=</span> <span class="n">magick</span><span class="p">::</span><span class="n">image_read</span><span class="p">(</span><span class="n">png_path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create a negated image</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># original image negated</span>
+<span class="n">mg_img2</span> <span class="o">=</span> <span class="n">magick</span><span class="p">::</span><span class="n">image_negate</span><span class="p">(</span><span class="n">mg_img</span><span class="p">)</span>
+<span class="n">orig_neg_png</span> <span class="o">=</span> <span class="n">createGiottoImage</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">mg_object</span> <span class="o">=</span> <span class="n">mg_img2</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;image_neg&#39;</span><span class="p">,</span>
+                         <span class="n">xmax_adj</span> <span class="o">=</span> <span class="mi">1300</span><span class="p">,</span> <span class="n">xmin_adj</span> <span class="o">=</span> <span class="mi">1200</span><span class="p">,</span> <span class="n">ymax_adj</span> <span class="o">=</span> <span class="mi">1100</span><span class="p">,</span> <span class="n">ymin_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">mypl_image</span> <span class="o">=</span> <span class="n">addGiottoImageToSpatPlot</span><span class="p">(</span><span class="n">mypl</span><span class="p">,</span> <span class="n">orig_neg_png</span><span class="p">)</span>
+<span class="n">mypl_image</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<p>Create a charcoal image</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># charcoal image (black/white)</span>
+<span class="n">mg_img3</span> <span class="o">=</span> <span class="n">magick</span><span class="p">::</span><span class="n">image_charcoal</span><span class="p">(</span><span class="n">mg_img</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">mg_img3</span> <span class="o">=</span> <span class="n">magick</span><span class="p">::</span><span class="n">image_convert</span><span class="p">(</span><span class="n">mg_img3</span><span class="p">,</span> <span class="n">colorspace</span> <span class="o">=</span> <span class="s1">&#39;rgb&#39;</span><span class="p">)</span>
+<span class="n">orig_charc_png</span> <span class="o">=</span> <span class="n">createGiottoImage</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">mg_object</span> <span class="o">=</span> <span class="n">mg_img3</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;image_charc&#39;</span><span class="p">,</span>
+                           <span class="n">xmax_adj</span> <span class="o">=</span> <span class="mi">1300</span><span class="p">,</span> <span class="n">xmin_adj</span> <span class="o">=</span> <span class="mi">1200</span><span class="p">,</span> <span class="n">ymax_adj</span> <span class="o">=</span> <span class="mi">1100</span><span class="p">,</span> <span class="n">ymin_adj</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">mypl_image</span> <span class="o">=</span> <span class="n">addGiottoImageToSpatPlot</span><span class="p">(</span><span class="n">mypl</span><span class="p">,</span> <span class="n">orig_charc_png</span><span class="p">)</span>
+<span class="n">mypl_image</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<p>Add multiple new images to your giotto object</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## add images to Giotto object ##</span>
+<span class="n">image_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">orig_white_png</span><span class="p">,</span> <span class="n">orig_black_png</span><span class="p">,</span> <span class="n">orig_neg_png</span><span class="p">,</span> <span class="n">orig_charc_png</span><span class="p">)</span>
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">addGiottoImage</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span>
+                       <span class="n">images</span> <span class="o">=</span> <span class="n">image_list</span><span class="p">)</span>
+<span class="n">showGiottoImageNames</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">)</span> <span class="c1"># shows which Giotto images are attached to you Giotto object</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example-kidney-analysis">
+<h1>5. Example Kidney Analysis<a class="headerlink" href="#example-kidney-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="processing">
+<h2>5.1 Processing<a class="headerlink" href="#processing" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## subset on spots that were covered by tissue
+metadata = pDataDT(visium_kidney)
+in_tissue_barcodes = metadata[in_tissue == 1]$cell_ID
+visium_kidney = subsetGiotto(visium_kidney, cell_ids = in_tissue_barcodes)
+
+## filter
+visium_kidney &lt;- filterGiotto(gobject = visium_kidney,
+                      expression_threshold = 1,
+                      gene_det_in_min_cells = 50,
+                      min_det_genes_per_cell = 1000,
+                      expression_values = c(&#39;raw&#39;),
+                      verbose = T)
+## normalize
+visium_kidney &lt;- normalizeGiotto(gobject = visium_kidney, scalefactor = 6000, verbose = T)
+## add gene &amp; cell statistics
+visium_kidney &lt;- addStatistics(gobject = visium_kidney)
+## visualize
+spatPlot(gobject = visium_kidney)
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;nr_genes&#39;</span><span class="p">,</span> <span class="n">color_as_factor</span> <span class="o">=</span> <span class="n">F</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># add black background image</span>
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s2">&quot;black_bg&quot;</span><span class="p">,</span>
+        <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;nr_genes&#39;</span><span class="p">,</span> <span class="n">color_as_factor</span> <span class="o">=</span> <span class="n">F</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## alternative: directly provide a gimage (giotto image object), this will override the the image_name param</span>
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">gimage</span> <span class="o">=</span> <span class="n">orig_charc_png</span><span class="p">,</span>
+        <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;nr_genes&#39;</span><span class="p">,</span> <span class="n">color_as_factor</span> <span class="o">=</span> <span class="n">F</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>ADD IMAGE</strong></p>
+</div>
+<div class="section" id="dimensionality-reduction">
+<h2>5.2 Dimensionality Reduction<a class="headerlink" href="#dimensionality-reduction" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>## highly variable genes (HVG)
+visium_kidney &lt;- calculateHVG(gobject = visium_kidney, nr_expression_groups = 10)
+
+## select genes based on HVG and gene statistics, both found in gene metadata
+gene_metadata = fDataDT(visium_kidney)
+featgenes = gene_metadata[hvg == &#39;yes&#39; &amp; perc_cells &gt; 4 &amp; mean_expr_det &gt; 0.5]$gene_ID
+
+## run PCA on expression values (default)
+visium_kidney &lt;- runPCA(gobject = visium_kidney, genes_to_use = featgenes)
+
+## run UMAP and tSNE on PCA space (default)
+visium_kidney &lt;- runUMAP(visium_kidney, dimensions_to_use = 1:10)
+plotUMAP(gobject = visium_kidney)
+</pre></div>
+</div>
+</div>
+<div class="section" id="cluster">
+<h2>5.2 Cluster<a class="headerlink" href="#cluster" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## sNN network (default)</span>
+<span class="n">visium_kidney</span> <span class="o">&lt;-</span> <span class="n">createNearestNetwork</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">dimensions_to_use</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">15</span><span class="p">)</span>
+<span class="c1">## Leiden clustering</span>
+<span class="n">visium_kidney</span> <span class="o">&lt;-</span> <span class="n">doLeidenCluster</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">resolution</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">n_iterations</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plotUMAP</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span>
+         <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;leiden_clus&#39;</span><span class="p">,</span> <span class="n">show_NN_network</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">point_size</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="co-visualize">
+<h2>5.4 Co-Visualize<a class="headerlink" href="#co-visualize" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># expression and spatial</span>
+<span class="n">showGiottoImageNames</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">)</span>
+
+<span class="n">spatDimPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;leiden_clus&#39;</span><span class="p">,</span>
+    <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;black_bg&#39;</span><span class="p">,</span>
+    <span class="n">dim_point_size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">spat_point_size</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>
+    <span class="n">save_param</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">save_name</span> <span class="o">=</span> <span class="s1">&#39;7_a_covis_leiden_black&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spatDimPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;leiden_clus&#39;</span><span class="p">,</span>
+        <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image_neg&#39;</span><span class="p">,</span>
+        <span class="n">dim_point_size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">spat_point_size</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>
+        <span class="n">save_param</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">save_name</span> <span class="o">=</span> <span class="s1">&#39;7_b_covis_leiden_negated&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spatDimPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;leiden_clus&#39;</span><span class="p">,</span>
+        <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image_charc&#39;</span><span class="p">,</span>
+        <span class="n">dim_point_size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">spat_point_size</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>
+        <span class="n">save_param</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">save_name</span> <span class="o">=</span> <span class="s1">&#39;7_b_covis_leiden_charc&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="spatial-gene-plots">
+<h2>5.5 Spatial Gene Plots<a class="headerlink" href="#spatial-gene-plots" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## gene plots ##</span>
+<span class="n">spatGenePlot</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image_charc&#39;</span><span class="p">,</span>
+        <span class="n">expression_values</span> <span class="o">=</span> <span class="s1">&#39;scaled&#39;</span><span class="p">,</span> <span class="n">point_size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">genes</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;Lrp2&#39;</span><span class="p">,</span> <span class="s1">&#39;Sptssb&#39;</span><span class="p">,</span> <span class="s1">&#39;Slc12a3&#39;</span><span class="p">),</span>  <span class="n">cow_n_col</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">cell_color_gradient</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">gradient_midpoint</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="n">save_param</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">save_name</span> <span class="o">=</span> <span class="s1">&#39;8_a_spatgene_charc&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spatGenePlot</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image_charc&#39;</span><span class="p">,</span>
+        <span class="n">expression_values</span> <span class="o">=</span> <span class="s1">&#39;scaled&#39;</span><span class="p">,</span> <span class="n">point_size</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">point_shape</span> <span class="o">=</span> <span class="s1">&#39;voronoi&#39;</span><span class="p">,</span>
+        <span class="n">genes</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;Lrp2&#39;</span><span class="p">,</span> <span class="s1">&#39;Sptssb&#39;</span><span class="p">,</span> <span class="s1">&#39;Slc12a3&#39;</span><span class="p">),</span>  <span class="n">cow_n_col</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">cell_color_gradient</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">gradient_midpoint</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vor_alpha</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="n">save_param</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">save_name</span> <span class="o">=</span> <span class="s1">&#39;8_b_spatgene_charc_vor&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="subset-plots">
+<h2>5.6 Subset Plots<a class="headerlink" href="#subset-plots" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">visium_kidney_subset</span> <span class="o">=</span> <span class="n">subsetGiottoLocs</span><span class="p">(</span><span class="n">visium_kidney</span><span class="p">,</span> <span class="n">x_min</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="mi">5500</span><span class="p">,</span> <span class="n">y_min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10000</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="o">-</span><span class="mi">7000</span><span class="p">)</span>
+
+<span class="n">spatGenePlot</span><span class="p">(</span><span class="n">visium_kidney_subset</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image_charc&#39;</span><span class="p">,</span>
+        <span class="n">expression_values</span> <span class="o">=</span> <span class="s1">&#39;scaled&#39;</span><span class="p">,</span> <span class="n">point_size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+        <span class="n">genes</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;Lrp2&#39;</span><span class="p">,</span> <span class="s1">&#39;Sptssb&#39;</span><span class="p">,</span> <span class="s1">&#39;Slc12a3&#39;</span><span class="p">),</span>  <span class="n">cow_n_col</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">cell_color_gradient</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">gradient_midpoint</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span>
+        <span class="n">save_param</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">save_name</span> <span class="o">=</span> <span class="s1">&#39;9_a_subset_spatgene_charc&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spatGenePlot</span><span class="p">(</span><span class="n">visium_kidney_subset</span><span class="p">,</span> <span class="n">show_image</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">image_name</span> <span class="o">=</span> <span class="s1">&#39;image_charc&#39;</span><span class="p">,</span>
+        <span class="n">expression_values</span> <span class="o">=</span> <span class="s1">&#39;scaled&#39;</span><span class="p">,</span> <span class="n">point_size</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>  <span class="n">point_shape</span> <span class="o">=</span> <span class="s1">&#39;voronoi&#39;</span><span class="p">,</span> <span class="n">vor_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">genes</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;Lrp2&#39;</span><span class="p">,</span> <span class="s1">&#39;Sptssb&#39;</span><span class="p">,</span> <span class="s1">&#39;Slc12a3&#39;</span><span class="p">),</span>  <span class="n">cow_n_col</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="n">cell_color_gradient</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;darkblue&#39;</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">gradient_midpoint</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">save_param</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">save_name</span> <span class="o">=</span> <span class="s1">&#39;9_b_subset_spatgene_charc_vor&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>======ypl_image</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Ruben Dries, Qian Zhu, Huipeng Li, Rui Dong, Guo-Cheng Yuan.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

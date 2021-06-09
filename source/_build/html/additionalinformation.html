@@ -1,0 +1,696 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Changelog &mdash; Giotto 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Giotto
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#giotto-1-0-1-1-0-3">Giotto 1.0.1 - 1.0.3</a></li>
+<li><a class="reference internal" href="#giotto-1-0-0">Giotto 1.0.0</a></li>
+<li><a class="reference internal" href="#giotto-0-3-5">Giotto 0.3.5</a></li>
+<li><a class="reference internal" href="#giotto-0-3-2">Giotto 0.3.2</a></li>
+<li><a class="reference internal" href="#giotto-0-3-1">Giotto 0.3.1</a></li>
+<li><a class="reference internal" href="#giotto-0-3-0">Giotto 0.3.0</a></li>
+<li><a class="reference internal" href="#giotto-0-2-4">Giotto 0.2.4</a></li>
+<li><a class="reference internal" href="#giotto-0-2-3">Giotto 0.2.3</a></li>
+<li><a class="reference internal" href="#giotto-0-2-2">Giotto 0.2.2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contact">Contact</a></li>
+<li><a class="reference internal" href="#contribute">Contribute</a><ul>
+<li><a class="reference internal" href="#how-to-contribute">How to contribute?</a></li>
+<li><a class="reference internal" href="#coding-style">Coding Style</a></li>
+<li><a class="reference internal" href="#stat-functions">Stat Functions</a></li>
+<li><a class="reference internal" href="#auxiliary-functions">Auxiliary Functions</a></li>
+<li><a class="reference internal" href="#accessors">Accessors</a></li>
+<li><a class="reference internal" href="#python-code">Python code</a></li>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Giotto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Changelog</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/additionalinformation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="giotto-1-0-1-1-0-3">
+<h2>Giotto 1.0.1 - 1.0.3<a class="headerlink" href="#giotto-1-0-1-1-0-3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed bugs</p></li>
+<li><p>Added seed to HMRF</p></li>
+<li><p>Created functions to read 10X Visium .h5 files</p>
+<ul>
+<li><p>see <strong>createGiottoVisiumObject</strong> to create a Giotto object
+directly</p></li>
+<li><p>see <strong>get10Xmatrix_h5</strong> to extract the count matrix</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="giotto-1-0-0">
+<h2>Giotto 1.0.0<a class="headerlink" href="#giotto-1-0-0" title="Permalink to this headline">¶</a></h2>
+<p>This is the first major release of Giotto. If you still want to work
+with the previous version, then you can find the older releases
+<a class="reference external" href="https://github.com/RubD/Giotto/tags">here</a>.</p>
+<p>Here is an overview about what has changed in the meantime:</p>
+<ul class="simple">
+<li><p><strong>NEW:</strong> Addition of <strong>getSpatialDataset</strong> to directly download a spatial dataset (expression matrix, spatial coordinates and metadata). This is now also included in the examples that you can find under the <strong>Datasets</strong> tab on this website.</p></li>
+<li><p><strong>NEW:</strong> We have added tools to install, remove and check a Giotto
+r-miniconda environment. This miniconda environment is one way to
+make sure that you can run functions that require Python modules.</p>
+<ul>
+<li><p><strong>installGiottoEnvironment</strong>: (re-)installs a Giotto miniconda environment</p></li>
+<li><p><strong>removeGiottoEnvironment</strong>: removes a Giotto miniconda environment</p></li>
+<li><p><strong>checkGiottoEnvironment</strong>: verifies if a Giotto environment can be found</p></li>
+</ul>
+</li>
+</ul>
+<p>The other alternative is to
+<a class="reference external" href="https://rubd.github.io/Giotto_site/articles/installation_issues.html#python-manual-installation">install</a>
+them in your own favorite Python environment and provide the path in the
+<strong>createGiottoInstructions</strong> command.</p>
+<ul class="simple">
+<li><p>Extension and improvement of spatial gene detection methods:</p>
+<ul>
+<li><p><strong>NEW:</strong> addition of <strong>spark</strong> method</p></li>
+<li><p>Improvements for silhouetteRank:</p>
+<ul>
+<li><p>Faster implementation</p></li>
+<li><p>Multi parameter version as <strong>silhouetteRankTest</strong></p></li>
+</ul>
+</li>
+<li><p>Improvements for binSpect:</p>
+<ul>
+<li><p>Faster implementation</p></li>
+<li><p>Multi parameter version: <strong>binSpectSingle</strong> or <strong>binSpectMulti</strong></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Spatial cell type enrichment methods have been streamlined and
+updated</p>
+<ul>
+<li><p><strong>runPAGEEnrich</strong> to run enrichment using PAGE algorithm and selected marker genes</p></li>
+<li><p><strong>runRankEnrich</strong> to run enrichment using a whole expression matrix</p></li>
+<li><p><strong>runHyperGeometricEnrich</strong> to run enrichment using the hypergeometric test</p></li>
+</ul>
+</li>
+<li><p><strong>NEW:</strong> Spatial cell type deconvolution has been added:</p>
+<ul>
+<li><p>use <strong>runSpatialDeconv</strong> or <strong>runDWLSDeconv</strong></p></li>
+</ul>
+</li>
+<li><p><strong>NEW:</strong> Addition of <strong>addCellIntMetadata</strong> to add information about
+interacting cell types, which can subsequently be viewed with the
+spatPlot commands.</p></li>
+<li><p><strong>NEW:</strong> Addition of 3 small vignettes that cover different types of
+spatial datasets:</p>
+<ul>
+<li><p>single-cell resolution (<a class="reference external" href="../articles/mini_seqfish.html">mini
+seqFISH+</a>)</p></li>
+<li><p>multi-cell resolution (<a class="reference external" href="../articles/mini_visium.html">mini
+visium</a>)</p></li>
+<li><p>3D dataset (<a class="reference external" href="../articles/mini_starmap.html">mini STARmap</a>)</p></li>
+<li><p>See <strong>data(package = ‘Giotto’)</strong></p></li>
+</ul>
+</li>
+<li><p>Cell Proximity Genes has been changed to Interaction Changed Genes</p>
+<ul>
+<li><p>This better reflects the nature of gene changes due to neighboring
+cell interactions</p></li>
+<li><p>CPG functions are deprecated and will be removed in the future</p></li>
+</ul>
+</li>
+<li><p>Several function help pages have been updated with dummy example code</p></li>
+<li><p>several small and big fixes to the code</p></li>
+</ul>
+</div>
+<div class="section" id="giotto-0-3-5">
+<h2>Giotto 0.3.5<a class="headerlink" href="#giotto-0-3-5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>background images See <a class="reference internal" href="gettingstarted.html#howtos"><span class="std std-ref">HowTos</span></a> for more information!</p></li>
+<li><p>support for sparse matrices</p></li>
+<li><p>PCA can be calculated with the packages irlba (default) or factominer
+(old default)</p></li>
+<li><p>complemented PCA with separate functions for a scree plot and
+jackstraw plot</p></li>
+<li><p>addition of <strong>readExprMatrix</strong> to read an expression matrix</p></li>
+<li><p>addition of <strong>addGenesPerc</strong> to add information about genesets
+(e.g. mitochondrial genes)</p></li>
+<li><p>addition of <strong>showGrids</strong> and <strong>showNetworks</strong> to see available
+spatial grids and networks</p></li>
+<li><p>several bug fixes</p></li>
+</ul>
+</div>
+<div class="section" id="giotto-0-3-2">
+<h2>Giotto 0.3.2<a class="headerlink" href="#giotto-0-3-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>added voronoi plots to use in spatial plotting. See <a class="reference internal" href="gettingstarted.html#howtos"><span class="std std-ref">HowTos</span></a> for more informaiton.</p></li>
+<li><p>generalized visualization parameters between functions</p></li>
+</ul>
+</div>
+<div class="section" id="giotto-0-3-1">
+<h2>Giotto 0.3.1<a class="headerlink" href="#giotto-0-3-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>(optional) automatic installation of python modules through
+reticulate:</p>
+<ul>
+<li><p>you can provide your preferred python path</p></li>
+<li><p>the giotto environment can be installed automatic</p></li>
+<li><p>if you do not provide the python path and do not choose to install
+the giotto environment, then it will take the default python path</p></li>
+</ul>
+</li>
+<li><p>several bug fixes</p></li>
+<li><p>several mini-datasets are now included within Giotto for quick
+testing:</p>
+<ul>
+<li><p>field 1 of seqFISH+ (single-cell)</p></li>
+<li><p>the visium brain Dentate Gyrus subset (spots)</p></li>
+<li><p>subset of starMAP (3D)</p></li>
+</ul>
+</li>
+</ul>
+<p>example to acces the seqFISH+ mini dataset:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># raw counts</span>
+<span class="n">small_seqfish_expr_matrix</span> <span class="o">=</span> <span class="nf">read.table</span><span class="p">(</span><span class="nf">system.file</span><span class="p">(</span><span class="s">&quot;extdata&quot;</span><span class="p">,</span> <span class="s">&quot;seqfish_field_expr.txt&quot;</span><span class="p">,</span> <span class="n">package</span> <span class="o">=</span> <span class="s">&#39;Giotto&#39;</span><span class="p">))</span>
+<span class="c1"># cell locations</span>
+<span class="n">small_seqfish_locations</span> <span class="o">=</span> <span class="nf">read.table</span><span class="p">(</span><span class="nf">system.file</span><span class="p">(</span><span class="s">&quot;extdata&quot;</span><span class="p">,</span> <span class="s">&quot;seqfish_field_locs.txt&quot;</span><span class="p">,</span> <span class="n">package</span> <span class="o">=</span> <span class="s">&#39;Giotto&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="giotto-0-3-0">
+<h2>Giotto 0.3.0<a class="headerlink" href="#giotto-0-3-0" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Default spatial network created with <strong>createSpatialNetwork</strong> is now
+a Delaunay spatial network.</p></li>
+</ul>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># to create the old default kNN spatial network use:</span>
+<span class="nf">createSpatialKNNnetwork</span><span class="p">(</span><span class="n">gobject</span><span class="p">)</span>
+
+<span class="c1"># or use this function with the following setting</span>
+<span class="nf">createSpatialNetwork</span><span class="p">(</span><span class="n">gobject</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&#39;kNN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The function names for extracting spatial genes have changed:</p></li>
+</ul>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># binGetSpatialGenes is now:</span>
+<span class="nf">binSpect</span><span class="p">(</span><span class="n">gobject</span><span class="p">)</span> <span class="c1"># binary Spatial extraction</span>
+
+<span class="c1"># spatial_genes_python is now:</span>
+<span class="nf">silhouetteRank</span><span class="p">(</span><span class="n">gobject</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Fixed multiple bugs</p></li>
+<li><p>Improved speed by changing code to Rcpp and implementing
+parallelization options</p></li>
+<li><p>updated <a class="reference internal" href="gettingstarted.html#howtos"><span class="std std-ref">HowTos</span></a> tutorials in
+Start section</p></li>
+<li><p>Finished the analysis of 10 different spatial datasets (tutorials are
+a work-in-progress)</p></li>
+</ul>
+</div>
+<div class="section" id="giotto-0-2-4">
+<h2>Giotto 0.2.4<a class="headerlink" href="#giotto-0-2-4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New examples on mouse kidney and brain using the recently released
+<a class="reference external" href="https://www.10xgenomics.com/spatial-transcriptomics/">10X Visium
+datasets</a>
+(<strong>NEW</strong>)</p></li>
+<li><p>Added tools to identify spatial enrichment based on cell-type
+specific gene signature lists (<strong>NEW</strong>)</p></li>
+</ul>
+</div>
+<div class="section" id="giotto-0-2-3">
+<h2>Giotto 0.2.3<a class="headerlink" href="#giotto-0-2-3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New example with 3D-like spatial data of the mouse hypothalamic
+preoptic region using
+<a class="reference external" href="https://science.sciencemag.org/content/362/6416/eaau5324">merFISH</a>
+(<strong>NEW</strong>)</p></li>
+<li><p>New example with 3D spatial data
+<a class="reference external" href="https://science.sciencemag.org/content/361/6400/eaat5691">STARmap</a></p></li>
+<li><p>New example with the highly sensitive data from
+<a class="reference external" href="https://www.nature.com/articles/s41592-018-0175-z">osmFISH</a></p></li>
+<li><p>New example on the Cerebellum with the scalable data from
+<a class="reference external" href="https://science.sciencemag.org/content/363/6434/1463">Slideseq</a></p></li>
+<li><p>New example on mouse olfactory bulb using immobilized primers on
+glass slides from <a class="reference external" href="https://science.sciencemag.org/content/353/6294/78">Spatial
+Transcriptomics</a></p></li>
+<li><p>Updated seqFISH+ cortex example (<strong>NEW</strong>)</p></li>
+<li><p>Updated STARmap cortex example (<strong>NEW</strong>)</p></li>
+</ul>
+</div>
+<div class="section" id="giotto-0-2-2">
+<h2>Giotto 0.2.2<a class="headerlink" href="#giotto-0-2-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Implemented <a class="reference external" href="https://github.com/Teichlab/SpatialDE">SpatialDE</a> and
+<a class="reference external" href="https://github.com/edsgard/trendsceek">trendsceek</a></p></li>
+<li><p>Updated support for 3D spatial data</p></li>
+<li><p>Added support for the use of global instructions and automatically
+saving your plots (<strong>NEW</strong>)</p></li>
+<li><p>Add wrapper for differential expression with
+<a class="reference external" href="https://github.com/RGLab/MAST">MAST</a> and
+<a class="reference external" href="https://bioconductor.org/packages/release/bioc/html/scran.html">SCRAN</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="contact">
+<h1>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h1>
+<p>Browse source code here:        <a class="reference external" href="https://​github.com/​RubD/​Giotto/​">https://​github.com/​RubD/​Giotto/​</a></p>
+<p>Report a bug at: <a class="reference external" href="https://​github.com/​RubD/​Giotto/​issues">https://​github.com/​RubD/​Giotto/​issues</a></p>
+</div>
+<div class="section" id="contribute">
+<h1>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="how-to-contribute">
+<h2>How to contribute?<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h2>
+<p>We welcome contributions or suggestions from other developers. Below, we provide a number of rules, suggestions and tips to help you contribute to Giotto in a sustainable manner. Please contact us if you have questions or would like to discuss an addition or major modifications to the Giotto main code.</p>
+</div>
+<div class="section" id="coding-style">
+<h2>Coding Style<a class="headerlink" href="#coding-style" title="Permalink to this headline">¶</a></h2>
+<p>Following a particular programming style will help programmers read and
+understand source code conforming to the style, and help to avoid
+introducing errors. Here we present a small list of guidelines on what
+is considered a good practice when writing R codes in Giotto package.
+Most of them are adapted from <a class="reference external" href="https://bioconductor.org/developers/how-to/coding-style/">Bioconductor - Coding
+Style</a> or
+<a class="reference external" href="https://google.github.io/styleguide/Rguide.xml">Google’s R Style
+Guide</a>. These
+guidelines are preferences and strongly encouraged!</p>
+<ul class="simple">
+<li><p><strong>Indentation</strong></p>
+<ul>
+<li><p>Use 4 spaces for indenting. No tabs.</p></li>
+<li><p>Prefereably no lines longer than 80 characters. This includes
+function documentations, examples, and vignette code chunks.</p></li>
+</ul>
+</li>
+<li><p><strong>Function names</strong></p>
+<ul>
+<li><p>Use camelCase.</p></li>
+<li><p>Do not use “.” (in the S3 class system, some(x) where x is class A
+will dispatch to some.A).</p></li>
+<li><p>Use underscores for non-exported functions, like
+‘non_exported_function’.</p></li>
+</ul>
+</li>
+<li><p><strong>Use of space</strong></p>
+<ul>
+<li><p>Do not place a space before a comma, but always place one after a
+comma. This: a, b, c.</p></li>
+<li><p>Always use space around “=” when using named arguments to
+functions. This: somefunc(a = 1, b = 2).</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="stat-functions">
+<h2>Stat Functions<a class="headerlink" href="#stat-functions" title="Permalink to this headline">¶</a></h2>
+<p>Most Giotto commands can accept several matrix classes (SparseM, Matrix
+or base). To facilitate this we provide small wrappers that work on any
+type of matrix class.</p>
+<ul class="simple">
+<li><p><strong>mean_giotto</strong>: analogous to mean()</p></li>
+<li><p><strong>rowSums_giotto</strong>: analogous to rowSums()</p></li>
+<li><p><strong>rowMeans_giotto</strong>: analogous to rowMeans()</p></li>
+<li><p><strong>colSums_giotto</strong>: analogous to colSums()</p></li>
+<li><p><strong>colMeans_giotto</strong>: analogous to colMeans()</p></li>
+<li><p><strong>t_giotto</strong>: analogous to t()</p></li>
+<li><p><strong>cor_sparse</strong>: analogous to cor()</p></li>
+</ul>
+</div>
+<div class="section" id="auxiliary-functions">
+<h2>Auxiliary Functions<a class="headerlink" href="#auxiliary-functions" title="Permalink to this headline">¶</a></h2>
+<p>Giotto has a number of auxiliary or convenience functions that might
+help you to adapt your code or write new code for Giotto. We encourage
+you to use these small functions to maintain uniformity throughout the
+code.</p>
+<ul class="simple">
+<li><p><strong>giotto_lapply</strong>: analogous to lapply() and works for both windows
+and unix systems</p></li>
+<li><p><strong>all_plots_save_function</strong>: compatible with Giotto instructions and
+helps to automatically save generated plots</p></li>
+<li><p><strong>determine_cores</strong>: to determine the number of cores to use if a
+user does not set this explicitly</p></li>
+<li><p><strong>get_os</strong>: to identify the operating system</p></li>
+<li><p><strong>package_check</strong>: to check if a package exists, works for packages
+on CRAN, Bioconductor and Github.</p></li>
+</ul>
+<p>The last function should be used within your contribution code. It has
+the additional benefit that it will suggest the user how to download the
+package if it is not available. To keep the size of Giotto within limits
+we prefer not to add too many new dependencies.</p>
+</div>
+<div class="section" id="accessors">
+<h2>Accessors<a class="headerlink" href="#accessors" title="Permalink to this headline">¶</a></h2>
+<p>Giotto stores information in different slots, which can be accessed
+through these accessor functions.</p>
+<ul class="simple">
+<li><p><strong>select_expression_values</strong>: To select the expression matrix to use
+(raw, normalized, scaled or custom)</p></li>
+<li><p><strong>select_dimReduction</strong>: To select the dimension reduction values to
+use</p></li>
+<li><p><strong>select_NearestNetwork</strong>: To select the nearest neighbor network
+(kNN or sNN) to use</p></li>
+<li><p><strong>select_spatialNetwork</strong>: To select the spatial network to use</p></li>
+<li><p><strong>select_spatialGrid</strong>: To select the spatial grid to use</p></li>
+</ul>
+</div>
+<div class="section" id="python-code">
+<h2>Python code<a class="headerlink" href="#python-code" title="Permalink to this headline">¶</a></h2>
+<p>To use Python code we prefer to create a python wrapper/functions around
+the python code, which can then be sourced by reticulate. As an example
+we show the basic principles of how we implemented the Leiden clustering
+algorithm.</p>
+<ol class="arabic simple">
+<li><p>write python wrapper and store as python_leiden.py in <em>/inst/python</em>:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">igraph</span> <span class="k">as</span> <span class="nn">ig</span>
+<span class="kn">import</span> <span class="nn">leidenalg</span> <span class="k">as</span> <span class="nn">la</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="k">def</span> <span class="nf">python_leiden</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">partition_type</span><span class="p">,</span> <span class="n">initial_membership</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_iterations</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">resolution_parameter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+
+<span class="c1"># Create networkx object</span>
+<span class="n">Gx</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_pandas_edgelist</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> <span class="n">source</span> <span class="o">=</span> <span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span>  <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="n">edge_attr</span> <span class="o">=</span> <span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+
+<span class="c1"># Get weight attribute</span>
+<span class="n">myweights</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">get_edge_attributes</span><span class="p">(</span><span class="n">Gx</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">)</span>
+
+<span class="o">....</span>
+
+<span class="k">return</span><span class="p">(</span><span class="n">leiden_dfr</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Source python code with reticulate:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python_leiden_function</span> <span class="o">=</span> <span class="n">system</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;python_leiden.py&quot;</span><span class="p">,</span> <span class="n">package</span> <span class="o">=</span> <span class="s1">&#39;Giotto&#39;</span><span class="p">)</span>
+<span class="n">reticulate</span><span class="p">::</span><span class="n">source_python</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="n">python_leiden_function</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Use python code as if R code:</p></li>
+</ol>
+<p><em>See **doLeidenCLuster*</em> for more detailed information*</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pyth_leid_result</span> <span class="o">=</span> <span class="n">python_leiden</span><span class="p">(</span><span class="n">df</span> <span class="o">=</span> <span class="n">network_edge_dt</span><span class="p">,</span>
+                                  <span class="n">partition_type</span> <span class="o">=</span> <span class="n">partition_type</span><span class="p">,</span>
+                                  <span class="n">initial_membership</span> <span class="o">=</span> <span class="n">init_membership</span><span class="p">,</span>
+                                  <span class="n">weights</span> <span class="o">=</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span>
+                                  <span class="n">n_iterations</span> <span class="o">=</span> <span class="n">n_iterations</span><span class="p">,</span>
+                                  <span class="n">seed</span> <span class="o">=</span> <span class="n">seed_number</span><span class="p">,</span>
+                                  <span class="n">resolution_parameter</span> <span class="o">=</span> <span class="n">resolution</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>As an example we show the implementation of SPARK, which is a recent
+method developed by <a class="reference external" href="https://doi.org/10.1038/s41592-019-0701-7">Sun et
+al</a> and provide some
+comments within the code.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>spark = function(gobject,
+               percentage = 0.1,
+               min_count = 10,
+               expression_values = &#39;raw&#39;,
+               num_core = 5,
+               covariates = NULL,
+               return_object = &#39;data.table&#39;,
+               ...) {
+
+# data.table variables; this is necessary when setting new variables within a data.table
+genes =  adjusted_pvalue = combined_pvalue = NULL
+
+# test if SPARK is installed
+# if false, it will suggest how to install SPARK
+package_check(pkg_name = &#39;SPARK&#39;,
+              repository = c(&#39;github&#39;),
+              github_repo = &#39;xzhoulab/SPARK&#39;)
+
+
+# print message with information and encouraging users to cite the authors their work
+message(&quot;using &#39;SPARK&#39; for spatial gene/pattern detection. If used in published research, please cite:
+Sun, Shiquan, Jiaqiang Zhu, and Xiang Zhou. “Statistical Analysis of Spatial Expression Pattern for Spatially Resolved Transcriptomic Studies.”
+        BioRxiv, October 21, 2019, 810903. https://doi.org/10.1101/810903.&quot;)
+
+
+# extract expression values from gobject using one of the accessors
+expr = select_expression_values(gobject = gobject, values = expression_values)
+
+# extract coordinates from gobject
+# check the different slots of the giotto S4 object
+locs = as.data.frame(gobject@spatial_locs)
+rownames(locs) = colnames(expr)
+
+
+# Here we implemented spark according to their github example code:
+
+# create SPARK object for analysis and filter out lowly expressed genes
+sobject = SPARK::CreateSPARKObject(counts = expr,
+                                   location = locs[,1:2],
+                                   percentage = percentage,
+                                   min_total_counts = min_count)
+
+# total counts for each cell
+sobject@lib_size = apply(sobject@counts, 2, sum)
+
+# extract covariates to adjust for from the cell metadata
+if(!is.null(covariates)) {
+
+  # first filter giotto object based on spark object
+  filter_cell_ids = colnames(sobject@counts)
+  filter_gene_ids = rownames(sobject@counts)
+  tempgobject = subsetGiotto(gobject, cell_ids = filter_cell_ids, gene_ids = filter_gene_ids)
+
+  metadata = pDataDT(tempgobject)
+
+  if(!covariates %in% colnames(metadata)) {
+    warning(covariates, &#39; was not found in the cell metadata of the giotto object, will be set to NULL \n&#39;)
+    covariates = NULL
+  } else {
+    covariates = metadata[[covariates]]
+  }
+}
+
+# Fit statistical model under null hypothesis
+sobject = SPARK::spark.vc(sobject,
+                          covariates = covariates,
+                          lib_size = sobject@lib_size,
+                          num_core = num_core,
+                          verbose = F,
+                          ...)
+
+# test spatially expressed pattern genes
+# calculating pval
+sobject = SPARK::spark.test(sobject,
+                            check_positive = T,
+                            verbose = F)
+
+# return results
+# return full output or a simple data.table format with the essental information
+if(return_object == &#39;spark&#39;){
+  return(sobject)
+} else if(return_object == &#39;data.table&#39;){
+  DT_results = data.table::as.data.table(sobject@res_mtest)
+  gene_names = rownames(sobject@counts)
+  DT_results[, genes := gene_names]
+  data.table::setorder(DT_results, adjusted_pvalue, combined_pvalue)
+  return(DT_results)
+}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Ruben Dries, Qian Zhu, Huipeng Li, Rui Dong, Guo-Cheng Yuan.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

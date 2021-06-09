@@ -1,0 +1,250 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Adding and Working with Images in Giotto: How to Work with Background Images? &mdash; Giotto 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Giotto
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Adding and Working with Images in Giotto: How to Work with Background Images?</a></li>
+<li><a class="reference internal" href="#create-giotto-object">1. Create Giotto Object</a></li>
+<li><a class="reference internal" href="#align-plot">2. Align Plot</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Giotto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Adding and Working with Images in Giotto: How to Work with Background Images?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/subsections/workingwithimages.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="adding-and-working-with-images-in-giotto-how-to-work-with-background-images">
+<span id="adding-and-working-with-images-in-giotto"></span><h1>Adding and Working with Images in Giotto: How to Work with Background Images?<a class="headerlink" href="#adding-and-working-with-images-in-giotto-how-to-work-with-background-images" title="Permalink to this headline">¶</a></h1>
+<p>All spatial visualization functions in the Giotto toolbox can be overlaid on a background image. This allows you to visualize your results on top of the original tissue image. We provide multiple ways of adding and modifying figures in Giotto.</p>
+<p>In short there are 3 things to consider:
+1. How to add an image to a Giotto object?</p>
+<ul class="simple">
+<li><p><strong>createGiottoVisiumObject</strong> can be used directly for a visium 10X dataset</p></li>
+<li><p><strong>createGiottoImage</strong> can be used to create a Giotto image object from a magick image object</p></li>
+<li><p><strong>addGiottoImage</strong> this add a Giotto image to your Giotto object</p></li>
+<li><p><strong>updateGiottoImage</strong> this helps to adjust the alignment of your image with your results</p></li>
+</ul>
+<p>2. How to modify an image (i.e. change the background color)?
+* <strong>estimateImageBg</strong> function to estimage the background color of your Giotto or magick image
+* <strong>changeImageBg</strong> function to change the background color of your image
+* <strong>plotGiottoImage</strong> function to plot an image by itself
+3. How to show these images with your spatial plots?
+* ** ** this tells you which giotto image(s) are part of your giotto object</p>
+<ul class="simple">
+<li><p>Each spatial plotting function has the following 3 parameters:</p>
+<ul>
+<li><p>show_image = TRUE or FALSE, to show a background image or not</p></li>
+<li><p>image_name = name of associated Giotto image to use for the background image (option 1)</p></li>
+<li><p>gimage = a giotto image object to use (option 2)</p></li>
+</ul>
+</li>
+<li><p><strong>addGiottoImageToSpatPlot</strong> to test your giotto images you can use this function to them to spatPlot result</p></li>
+</ul>
+<p>Here we process the Visium Kidney dataset to illustrate all the different and flexible ways to deal with images:</p>
+</div>
+<div class="section" id="create-giotto-object">
+<h1>1. Create Giotto Object<a class="headerlink" href="#create-giotto-object" title="Permalink to this headline">¶</a></h1>
+<p>Here we use the wrapper function createGiottoVisiumObject to create a Giotto object for a 10X Visium dataset, which includes a png image.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">library</span><span class="p">(</span><span class="n">Giotto</span><span class="p">)</span>
+
+<span class="n">visium_kidney</span> <span class="o">=</span> <span class="n">createGiottoVisiumObject</span><span class="p">(</span><span class="n">visium_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/Visium_data/Kidney_data&#39;</span><span class="p">,</span>
+                                     <span class="n">png_name</span> <span class="o">=</span> <span class="s1">&#39;tissue_lowres_image.png&#39;</span><span class="p">,</span> <span class="n">gene_column_index</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="align-plot">
+<h1>2. Align Plot<a class="headerlink" href="#align-plot" title="Permalink to this headline">¶</a></h1>
+<p>The image plot and the Giotto results are not always perfectly aligned. This step just needs to be done once.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># output from Giotto</span>
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">visium_kidney</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;in_tissue&#39;</span><span class="p">,</span> <span class="n">point_alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Ruben Dries, Qian Zhu, Huipeng Li, Rui Dong, Guo-Cheng Yuan.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
