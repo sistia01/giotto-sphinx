@@ -38,7 +38,9 @@
 
     
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog" href="additionalinformation.html" />
+    <link rel="prev" title="Work in Progress" href="datasets.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,23 +85,53 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">FAQs and Solutions to Errors</a></li>
-<li><a class="reference internal" href="#errors-on-macos">Errors on MacOS</a><ul>
-<li><a class="reference internal" href="#issue-1-clang-error">Issue 1: Clang Error</a></li>
-<li><a class="reference internal" href="#issue-2-clang-error">Issue 2: Clang Error</a></li>
-<li><a class="reference internal" href="#issue-3-r-3-6-3-and-macos-catalina">Issue 3: R 3.6.3 and MacOS Catalina</a></li>
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="general.html">General Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general.html#other-relevant-information">Other Relevant Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#description">Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#requirements">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#workflow-diagram">Workflow Diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#howtos">HowTos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html#giotto-workflow-analyses"><span class="xref std std-doc">Giotto Workflow Analyses</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html">Giotto Workflow Diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#giotto-workflow-analyses">Giotto Workflow Analyses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#create-a-giotto-object">1. Create a Giotto Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#process-and-filter-a-giotto-object">2. Process and Filter a Giotto Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#dimension-reduction">3. Dimension Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#cluster-cells-or-spots">4. Cluster cells or spots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#identify-differentially-expressed-genes">5. Identify differentially expressed genes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#annotate-clusters">6. Annotate clusters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#cell-type-enrichment-or-deconvolution-per-spot">7. Cell-type enrichment or deconvolution per spot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#create-a-spatial-grid-or-network">8. Create a Spatial grid or Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#find-genes-with-a-spatially-coherent-gene-expression-pattern">9. Find genes with a spatially coherent gene expression pattern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#spatially-coexpressed-genes">10. Identify genes that are spatially co-expressed</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#explore-spatial-domains-with-hmrf">11. Explore spatial domains with HMRF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#calculate-spatial-cell-cell-interaction-enrichment">12. Calculate spatial cell-cell interaction enrichment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#find-cell-cell-interaction-changed-genes-icg">13. Find cell-cell interaction changed genes (ICG)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#enriched-or-depleted-ligand-receptor-interactions">14. Identify enriched or depleted ligand-receptor interactions in hetero and homo-typic cell interactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="giottoworkflowanalyses.html#export-giotto-results-to-use-in-giotto-viewer">15. Export Giotto results to use in Giotto viewer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQs and Solutions to Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#errors-on-macos">Errors on MacOS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#issue-1-clang-error">Issue 1: Clang Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#issue-2-clang-error">Issue 2: Clang Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#issue-3-r-3-6-3-and-macos-catalina">Issue 3: R 3.6.3 and MacOS Catalina</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#errors-on-windows">Errors on Windows</a><ul>
-<li><a class="reference internal" href="#issue-1-make-not-found-error-on-windows">Issue 1: ‘Make’ not found error on windows</a></li>
-<li><a class="reference internal" href="#issue-2-error-converted-from-warning">Issue 2: Error Converted from Warning</a></li>
-<li><a class="reference internal" href="#giotto-tips-and-tricks">Giotto Tips and Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#errors-on-windows">Errors on Windows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#issue-1-make-not-found-error-on-windows">Issue 1: ‘Make’ not found error on windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#issue-2-error-converted-from-warning">Issue 2: Error Converted from Warning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#giotto-tips-and-tricks">Giotto Tips and Tricks</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="additionalinformation.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additionalinformation.html#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additionalinformation.html#contribute">Contribute</a></li>
 </ul>
-</div>
+
             
           
         </div>
@@ -278,13 +310,13 @@ The Giotto branch <strong>cless</strong> is a version of Giotto without C++ code
 <div class="section" id="giotto-tips-and-tricks">
 <h2>Giotto Tips and Tricks<a class="headerlink" href="#giotto-tips-and-tricks" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="subsections/tipsandtricks/howtosubsetgiottoobject.html#ways-of-subsetting"><span class="std std-ref">Different ways of subsetting Giotto results?</span></a></p></li>
-<li><p><a class="reference internal" href="subsections/tipsandtricks/waystovisualizespatialdata.html#global-instructions-and-save-plots"><span class="std std-ref">How to create global instructions and show or save your created plots?</span></a></p></li>
-<li><p><a class="reference internal" href="subsections/tipsandtricks/howtovisualizeandsaveplots.html#visualize-data"><span class="std std-ref">Different ways to visualize your spatial data?</span></a></p></li>
-<li><p><a class="reference internal" href="subsections/tipsandtricks/testandstoremultipleanayses.html#test-and-store"><span class="std std-ref">How to test and store multiple parameters or analyses?</span></a></p></li>
-<li><p><a class="reference internal" href="subsections/tipsandtricks/visualizewithvoronoiplots.html#voronoi-plots"><span class="std std-ref">Visualize spatial data with voronoi plots</span></a></p></li>
-<li><p><a class="reference internal" href="subsections/tipsandtricks/giottoclass.html#giotto-class"><span class="std std-ref">Working with the Giotto class</span></a></p></li>
-<li><p><a class="reference internal" href="subsections/tipsandtricks/workingwithimages.html#working-with-giotto-images"><span class="std std-ref">Adding and Working with Images in Giotto</span></a></p></li>
+<li><p><span class="xref std std-ref">Different ways of subsetting Giotto results?</span></p></li>
+<li><p><span class="xref std std-ref">How to create global instructions and show or save your created plots?</span></p></li>
+<li><p><span class="xref std std-ref">Different ways to visualize your spatial data?</span></p></li>
+<li><p><span class="xref std std-ref">How to test and store multiple parameters or analyses?</span></p></li>
+<li><p><span class="xref std std-ref">Visualize spatial data with voronoi plots</span></p></li>
+<li><p><span class="xref std std-ref">Working with the Giotto class</span></p></li>
+<li><p><span class="xref std std-ref">Adding and Working with Images in Giotto</span></p></li>
 </ul>
 </div>
 </div>
@@ -294,6 +326,10 @@ The Giotto branch <strong>cless</strong> is a version of Giotto without C++ code
            
           </div>
           <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="additionalinformation.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="datasets.html" class="btn btn-neutral float-left" title="Work in Progress" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

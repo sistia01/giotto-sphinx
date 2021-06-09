@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Different ways to visualize your spatial data? &mdash; Giotto 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Giotto
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Different ways to visualize your spatial data?</a></li>
+<li><a class="reference internal" href="#functions-specific-to-a-task-or-analysis">1. Functions specific to a task or analysis:</a></li>
+<li><a class="reference internal" href="#functions-that-use-the-spatial-coordinates-of-each-cell-or-spot-they-usually-start-with-spatxxx">2. Functions that use the spatial coordinates of each cell or spot, they usually start with spatXXX</a></li>
+<li><a class="reference internal" href="#functions-that-use-the-dimension-reduction-coordinates-of-each-cell-or-spot-they-usually-start-with-dimxxx">3. Functions that use the dimension reduction coordinates of each cell or spot, they usually start with dimXXX</a></li>
+<li><a class="reference internal" href="#functions-for-co-visualization-that-combine-spat-2-and-dim-3">4. Functions for co-visualization that combine spat (2) and dim (3)</a></li>
+<li><a class="reference internal" href="#both-in-2d-and-3d">5. Both in 2D and 3D</a></li>
+<li><a class="reference internal" href="#ways-to-save-plots">6. Ways to Save Plots</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Giotto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Different ways to visualize your spatial data?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/subsections/tipsandtricks/waystovisualizespatialdata.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="different-ways-to-visualize-your-spatial-data">
+<span id="global-instructions-and-save-plots"></span><h1>Different ways to visualize your spatial data?<a class="headerlink" href="#different-ways-to-visualize-your-spatial-data" title="Permalink to this headline">¶</a></h1>
+<p><em>Giotto provides multiple different ways to visualize your spatial data:</em></p>
+</div>
+<div class="section" id="functions-specific-to-a-task-or-analysis">
+<h1>1. Functions specific to a task or analysis:<a class="headerlink" href="#functions-specific-to-a-task-or-analysis" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>plotHeatmap</strong></p></li>
+<li><p><strong>plotMetadataHeatmap</strong></p></li>
+<li><p><strong>violinPlot</strong></p></li>
+</ul>
+<p><em>Check out the different dataset examples to see the wide range of visualization options</em></p>
+</div>
+<div class="section" id="functions-that-use-the-spatial-coordinates-of-each-cell-or-spot-they-usually-start-with-spatxxx">
+<h1>2. Functions that use the spatial coordinates of each cell or spot, they usually start with spatXXX<a class="headerlink" href="#functions-that-use-the-spatial-coordinates-of-each-cell-or-spot-they-usually-start-with-spatxxx" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>spatPlot</strong>, to plot cell annotation information (e.g. cluster or cell type)</p></li>
+<li><p><strong>spatGenePlot</strong>, to overlay (multiple) gene expression values</p></li>
+<li><p><strong>spatCellPlot</strong>, to overlay (multiple) numerical cell values (e.g. spatial enrichment)</p></li>
+</ul>
+</div>
+<div class="section" id="functions-that-use-the-dimension-reduction-coordinates-of-each-cell-or-spot-they-usually-start-with-dimxxx">
+<h1>3. Functions that use the dimension reduction coordinates of each cell or spot, they usually start with dimXXX<a class="headerlink" href="#functions-that-use-the-dimension-reduction-coordinates-of-each-cell-or-spot-they-usually-start-with-dimxxx" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>dimPlot</strong>, to plot cell annotation information (e.g. cluster or cell type)</p></li>
+<li><p><strong>dimGenePlot</strong>, to overlay (multiple) gene expression values</p></li>
+<li><p><strong>dimCellPlot</strong>, to overlay (multiple) numerical cell values (e.g. spatial enrichment)</p></li>
+<li><p><strong>plotPCA</strong>, <strong>plotUMAP</strong> and <strong>plotTSNE</strong> are shortcuts for <strong>dimPlot</strong></p></li>
+</ul>
+</div>
+<div class="section" id="functions-for-co-visualization-that-combine-spat-2-and-dim-3">
+<h1>4. Functions for co-visualization that combine spat (2) and dim (3)<a class="headerlink" href="#functions-for-co-visualization-that-combine-spat-2-and-dim-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>spatDimPlot</strong>, to plot cell annotation information (e.g. cluster or cell type)</p></li>
+<li><p><strong>spatDimGenePlot</strong>, to overlay (multiple) gene expression values</p></li>
+<li><p><strong>spatDimCellPlot</strong>, to overlay (multiple) numerical cell values (e.g. spatial enrichment)</p></li>
+</ul>
+</div>
+<div class="section" id="both-in-2d-and-3d">
+<h1>5. Both in 2D and 3D<a class="headerlink" href="#both-in-2d-and-3d" title="Permalink to this headline">¶</a></h1>
+<p>Most functions both have a 2D and 3D version, like <strong>spatDimPlot2D</strong> and <strong>spatDimPlot3D</strong>. In those cases the <strong>spatDimPlot2D</strong> is the same as <strong>spatDimPlot</strong>. So only in case you want to plot your spatial or dimension reduction data in 3D, you need to specifically say so.</p>
+</div>
+<div class="section" id="ways-to-save-plots">
+<h1>6. Ways to Save Plots<a class="headerlink" href="#ways-to-save-plots" title="Permalink to this headline">¶</a></h1>
+<p>See also Giotto Tips and Tricks: How to create global instructions and show or save your created plots? For more information.</p>
+<p>All parameters available to <strong>save_param</strong> are found on the help page of <strong>?Giotto::all_plots_save_function</strong></p>
+<p><em>Hypothetical example showing a number of options:</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. standard R way</span>
+<span class="n">pl</span> <span class="o">=</span> <span class="n">spatPlot</span><span class="p">(</span><span class="n">mygobject</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;cell_types&#39;</span><span class="p">)</span>
+<span class="n">pdf</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;path/to/save/to/plot.pdf&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pl</span><span class="p">)</span>
+<span class="n">dev</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
+
+<span class="c1"># 2. indicate to save plot, this will save the plot according to Giotto instructions file</span>
+<span class="c1"># If the instruction file is not provided in the beginning, it uses the defaults (e.g. working directory)</span>
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">mygobject</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;cell_types&#39;</span><span class="p">,</span> <span class="n">save_plot</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+
+<span class="c1"># 3. indicate to save plot and specifiy specific saving parameters by providing a list to save_param</span>
+<span class="c1"># they will overrule the giotto instructions</span>
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">mygobject</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;cell_types&#39;</span><span class="p">,</span> <span class="n">save_plot</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span>
+ <span class="n">save_param</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">save_folder</span> <span class="o">=</span> <span class="s1">&#39;my_subfolder&#39;</span><span class="p">,</span> <span class="n">save_name</span> <span class="o">=</span> <span class="s1">&#39;my_name&#39;</span><span class="p">,</span> <span class="n">save_format</span> <span class="o">=</span> <span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="n">units</span> <span class="o">=</span> <span class="s1">&#39;in&#39;</span><span class="p">))</span>
+
+<span class="c1"># 4. don&#39;t save or return plot, but just view plot</span>
+<span class="c1"># defaults are: save_plot = F, return_plot = T and show_plot = T</span>
+<span class="c1"># this can be changed in the instructions file or at each specific plotting function</span>
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">mygobject</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;cell_types&#39;</span><span class="p">,</span> <span class="n">save_plot</span> <span class="o">=</span> <span class="n">F</span><span class="p">,</span> <span class="n">return_plot</span> <span class="o">=</span> <span class="n">F</span> <span class="n">show_plot</span> <span class="o">=</span> <span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Ruben Dries, Qian Zhu, Huipeng Li, Rui Dong, Guo-Cheng Yuan.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

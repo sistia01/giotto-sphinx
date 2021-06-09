@@ -1,0 +1,302 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Visualize Spatial Data with Voronoi Plots &mdash; Giotto 1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Giotto
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Visualize Spatial Data with Voronoi Plots</a></li>
+<li><a class="reference internal" href="#start-with-the-analysis-of-the-mini-seqfish-dataset">1. Start with the analysis of the mini seqFISH+ dataset</a></li>
+<li><a class="reference internal" href="#voronoi-plot-examples">2. Voronoi Plot Examples</a></li>
+<li><a class="reference internal" href="#creating-neighbors-and-showing-neighbors">3. Creating Neighbors and Showing Neighbors</a></li>
+<li><a class="reference internal" href="#gene-expression-and-voronoi-plots">4. Gene Expression and Voronoi Plots</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Giotto</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Visualize Spatial Data with Voronoi Plots</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/subsections/tipsandtricks/visualizewithvoronoiplots.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="visualize-spatial-data-with-voronoi-plots">
+<span id="voronoi-plots"></span><h1>Visualize Spatial Data with Voronoi Plots<a class="headerlink" href="#visualize-spatial-data-with-voronoi-plots" title="Permalink to this headline">¶</a></h1>
+<p>Voronoi plots are an attractive way to visualize spatial expression data since it reduces whitespace between single cells or spots, however the voronoi borders do NOT necessarily mimick the true cell borders. Nevertheless it has been used to ‘segment’ cells and assign transcripts to individual cells. Here we merely use it as a beautifull visualization alternative to simple ‘points’.</p>
+</div>
+<div class="section" id="start-with-the-analysis-of-the-mini-seqfish-dataset">
+<h1>1. Start with the analysis of the mini seqFISH+ dataset<a class="headerlink" href="#start-with-the-analysis-of-the-mini-seqfish-dataset" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>This dataset is part of the Giotto package</p></li>
+<li><p>It is very small and easy to run</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>library(Giotto)
+
+# input data
+VC_exprs_small = read.table(system.file(&quot;extdata&quot;, &quot;seqfish_field_expr.txt&quot;, package = &#39;Giotto&#39;))
+VC_locs_small = read.table(system.file(&quot;extdata&quot;, &quot;seqfish_field_locs.txt&quot;, package = &#39;Giotto&#39;))
+
+# giotto object
+VC_small &lt;- createGiottoObject(raw_exprs = VC_exprs_small, spatial_locs = VC_locs_small)
+VC_small &lt;- filterGiotto(gobject = VC_small, expression_threshold = 0.5, gene_det_in_min_cells = 0, min_det_genes_per_cell = 0)
+VC_small &lt;- normalizeGiotto(gobject = VC_small, scalefactor = 6000, verbose = T)
+VC_small &lt;- addStatistics(gobject = VC_small)
+
+# clustering
+VC_small &lt;- calculateHVG(gobject = VC_small)
+gene_metadata = fDataDT(VC_small)
+featgenes = gene_metadata[hvg == &#39;yes&#39; &amp; perc_cells &gt; 4 &amp; mean_expr_det &gt; 0.5]$gene_ID
+VC_small &lt;- runPCA(gobject = VC_small, genes_to_use = featgenes, scale_unit = F)
+VC_small &lt;- runUMAP(VC_small, dimensions_to_use = 1:5, n_threads = 2)
+VC_small &lt;- createNearestNetwork(gobject = VC_small, dimensions_to_use = 1:5, k = 5)
+VC_small &lt;- doLeidenCluster(gobject = VC_small, resolution = 0.4, n_iterations = 1000)
+
+# spatial grid and network
+VC_small = createSpatialNetwork(gobject = VC_small, minimum_k = 2)
+VC_small = createSpatialGrid(gobject = VC_small, sdimx_stepsize = 500, sdimy_stepsize = 500)
+</pre></div>
+</div>
+</div>
+<div class="section" id="voronoi-plot-examples">
+<h1>2. Voronoi Plot Examples<a class="headerlink" href="#voronoi-plot-examples" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># spatial voronoi plot with selected clusters</span>
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">VC_small</span><span class="p">,</span> <span class="n">point_shape</span> <span class="o">=</span> <span class="s1">&#39;voronoi&#39;</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span><span class="s1">&#39;leiden_clus&#39;</span><span class="p">,</span> <span class="n">select_cell_groups</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/1_voronoi.png"><img alt="voronoi plots" src="../../_images/1_voronoi.png" style="width: 400px;" /></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># spatial voronoi plot without showing not selected clusters</span>
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">VC_small</span><span class="p">,</span> <span class="n">point_shape</span> <span class="o">=</span> <span class="s1">&#39;voronoi&#39;</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span><span class="s1">&#39;leiden_clus&#39;</span><span class="p">,</span> <span class="n">select_cell_groups</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">show_other_cells</span> <span class="o">=</span> <span class="n">F</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/2_voronoi_no_others.png"><img alt="voronoi plots" src="../../_images/2_voronoi_no_others.png" style="width: 400px;" /></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># spatial voronoi plot without showing not selected cells, but showing the voronoi borders</span>
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">VC_small</span><span class="p">,</span> <span class="n">point_shape</span> <span class="o">=</span> <span class="s1">&#39;voronoi&#39;</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span><span class="s1">&#39;leiden_clus&#39;</span><span class="p">,</span> <span class="n">select_cell_groups</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">show_other_cells</span> <span class="o">=</span> <span class="n">F</span><span class="p">,</span> <span class="n">vor_border_color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/3_voronoi_no_others_black_border.png"><img alt="voronoi plots" src="../../_images/3_voronoi_no_others_black_border.png" style="width: 400px;" /></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualization of both dimension reduction and spatial results</span>
+<span class="n">spatDimPlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">VC_small</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span> <span class="s1">&#39;leiden_clus&#39;</span><span class="p">,</span> <span class="n">spat_point_shape</span> <span class="o">=</span> <span class="s1">&#39;voronoi&#39;</span><span class="p">,</span> <span class="n">dim_point_size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/4_voronoi_spat_dim.png"><img alt="voronoi plots" src="../../_images/4_voronoi_spat_dim.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="creating-neighbors-and-showing-neighbors">
+<h1>3. Creating Neighbors and Showing Neighbors<a class="headerlink" href="#creating-neighbors-and-showing-neighbors" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nb_annot</span> <span class="o">=</span> <span class="n">findNetworkNeighbors</span><span class="p">(</span><span class="n">VC_small</span><span class="p">,</span>
+                            <span class="n">spatial_network_name</span> <span class="o">=</span> <span class="s1">&#39;Delaunay_network&#39;</span><span class="p">,</span>
+                            <span class="n">source_cell_ids</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;cell_1&#39;</span><span class="p">,</span> <span class="s1">&#39;cell_6&#39;</span><span class="p">,</span> <span class="s1">&#39;cell_10&#39;</span><span class="p">,</span> <span class="s1">&#39;cell_91&#39;</span><span class="p">,</span> <span class="s1">&#39;cell_92&#39;</span><span class="p">,</span> <span class="s1">&#39;cell_93&#39;</span><span class="p">))</span>
+<span class="n">VC_small</span> <span class="o">=</span> <span class="n">addCellMetadata</span><span class="p">(</span><span class="n">VC_small</span><span class="p">,</span> <span class="n">new_metadata</span> <span class="o">=</span> <span class="n">nb_annot</span><span class="p">,</span> <span class="n">by_column</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">column_cell_ID</span> <span class="o">=</span> <span class="s1">&#39;cell_ID&#39;</span><span class="p">)</span>
+
+<span class="n">spatPlot</span><span class="p">(</span><span class="n">VC_small</span><span class="p">,</span> <span class="n">point_shape</span> <span class="o">=</span> <span class="s1">&#39;voronoi&#39;</span><span class="p">,</span> <span class="n">cell_color</span> <span class="o">=</span><span class="s1">&#39;nb_cells&#39;</span><span class="p">,</span>
+         <span class="n">cell_color_code</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">source</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">both</span> <span class="o">=</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">others</span> <span class="o">=</span> <span class="s1">&#39;lightgrey&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/5_voronoi_neighbors.png"><img alt="voronoi plots" src="../../_images/5_voronoi_neighbors.png" style="width: 400px;" /></a>
+</div>
+<div class="section" id="gene-expression-and-voronoi-plots">
+<h1>4. Gene Expression and Voronoi Plots<a class="headerlink" href="#gene-expression-and-voronoi-plots" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## overlay gene expression information ##</span>
+ <span class="n">selected_genes</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;Cldn5&#39;</span><span class="p">,</span> <span class="s1">&#39;Soga3&#39;</span><span class="p">)</span>
+
+ <span class="c1"># selected genes original</span>
+ <span class="n">spatGenePlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">VC_small</span><span class="p">,</span> <span class="n">expression_values</span> <span class="o">=</span> <span class="s1">&#39;scaled&#39;</span><span class="p">,</span> <span class="n">genes</span> <span class="o">=</span> <span class="n">selected_genes</span><span class="p">,</span> <span class="n">point_size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/6_original_points.png"><img alt="voronoi plots" src="../../_images/6_original_points.png" style="width: 400px;" /></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># selected genes voronoi</span>
+<span class="n">spatGenePlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">VC_small</span><span class="p">,</span> <span class="n">genes</span> <span class="o">=</span> <span class="n">selected_genes</span><span class="p">,</span> <span class="n">point_shape</span> <span class="o">=</span> <span class="s1">&#39;voronoi&#39;</span><span class="p">,</span>
+             <span class="n">expression_values</span> <span class="o">=</span> <span class="s1">&#39;scaled&#39;</span><span class="p">,</span> <span class="n">vor_border_color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/7_voronoi_genes.png"><img alt="voronoi plots" src="../../_images/7_voronoi_genes.png" style="width: 400px;" /></a>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># one gene + black background and white borders</span>
+<span class="n">spatGenePlot</span><span class="p">(</span><span class="n">gobject</span> <span class="o">=</span> <span class="n">VC_small</span><span class="p">,</span> <span class="n">genes</span> <span class="o">=</span> <span class="s1">&#39;Cldn5&#39;</span><span class="p">,</span> <span class="n">point_size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">point_shape</span> <span class="o">=</span> <span class="s1">&#39;voronoi&#39;</span><span class="p">,</span>
+             <span class="n">expression_values</span> <span class="o">=</span> <span class="s1">&#39;scaled&#39;</span><span class="p">,</span> <span class="n">vor_border_color</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">show_network</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span> <span class="n">network_color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+             <span class="n">background_color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">cell_color_gradient</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">gradient_midpoint</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cow_n_col</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../../_images/8_voronoi_gene_black_bg.png"><img alt="voronoi plots" src="../../_images/8_voronoi_gene_black_bg.png" style="width: 400px;" /></a>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Ruben Dries, Qian Zhu, Huipeng Li, Rui Dong, Guo-Cheng Yuan.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

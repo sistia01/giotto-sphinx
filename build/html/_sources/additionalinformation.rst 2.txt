@@ -1,0 +1,473 @@
+.. _addedinformation: 
+
+Changelog
+====================
+
+Giotto 1.0.1 - 1.0.3
+-----------------------
+
+-  Fixed bugs
+-  Added seed to HMRF
+-  Created functions to read 10X Visium .h5 files
+
+   -  see **createGiottoVisiumObject** to create a Giotto object
+      directly
+   -  see **get10Xmatrix\_h5** to extract the count matrix
+
+Giotto 1.0.0
+-----------------------
+
+This is the first major release of Giotto. If you still want to work
+with the previous version, then you can find the older releases
+`here <https://github.com/RubD/Giotto/tags>`__.
+
+Here is an overview about what has changed in the meantime:
+
+-  **NEW:** Addition of **getSpatialDataset** to directly download a spatial dataset (expression matrix, spatial coordinates and metadata). This is now also included in the examples that you can find under the **Datasets** tab on this website.
+
+-  **NEW:** We have added tools to install, remove and check a Giotto
+   r-miniconda environment. This miniconda environment is one way to
+   make sure that you can run functions that require Python modules.
+   
+   - **installGiottoEnvironment**: (re-)installs a Giotto miniconda environment
+   - **removeGiottoEnvironment**: removes a Giotto miniconda environment
+   - **checkGiottoEnvironment**: verifies if a Giotto environment can be found
+
+
+The other alternative is to
+`install <https://rubd.github.io/Giotto_site/articles/installation_issues.html#python-manual-installation>`__
+them in your own favorite Python environment and provide the path in the
+**createGiottoInstructions** command.
+
+-  Extension and improvement of spatial gene detection methods:
+
+   -  **NEW:** addition of **spark** method
+   -  Improvements for silhouetteRank:
+
+      -  Faster implementation
+      -  Multi parameter version as **silhouetteRankTest**
+
+   -  Improvements for binSpect:
+
+      -  Faster implementation
+      -  Multi parameter version: **binSpectSingle** or **binSpectMulti**
+
+-  Spatial cell type enrichment methods have been streamlined and
+   updated
+
+   -  **runPAGEEnrich** to run enrichment using PAGE algorithm and selected marker genes
+   -  **runRankEnrich** to run enrichment using a whole expression matrix
+   -  **runHyperGeometricEnrich** to run enrichment using the hypergeometric test
+
+-  **NEW:** Spatial cell type deconvolution has been added:
+
+   -  use **runSpatialDeconv** or **runDWLSDeconv**
+
+-  **NEW:** Addition of **addCellIntMetadata** to add information about
+   interacting cell types, which can subsequently be viewed with the
+   spatPlot commands.
+
+-  **NEW:** Addition of 3 small vignettes that cover different types of
+   spatial datasets:
+
+   -  single-cell resolution (`mini
+      seqFISH+ <../articles/mini_seqfish.html>`__)
+   -  multi-cell resolution (`mini
+      visium <../articles/mini_visium.html>`__)
+   -  3D dataset (`mini STARmap <../articles/mini_starmap.html>`__)
+   -  See **data(package = ‘Giotto’)**
+
+-  Cell Proximity Genes has been changed to Interaction Changed Genes
+
+   -  This better reflects the nature of gene changes due to neighboring
+      cell interactions
+   -  CPG functions are deprecated and will be removed in the future
+
+-  Several function help pages have been updated with dummy example code
+
+-  several small and big fixes to the code
+
+Giotto 0.3.5
+-----------------------
+
+-  background images See :ref:`HowTos <howtos>` for more information!
+-  support for sparse matrices
+-  PCA can be calculated with the packages irlba (default) or factominer
+   (old default)
+-  complemented PCA with separate functions for a scree plot and
+   jackstraw plot
+-  addition of **readExprMatrix** to read an expression matrix
+-  addition of **addGenesPerc** to add information about genesets
+   (e.g. mitochondrial genes)
+-  addition of **showGrids** and **showNetworks** to see available
+   spatial grids and networks
+-  several bug fixes
+
+Giotto 0.3.2
+-----------------------
+
+-  added voronoi plots to use in spatial plotting. See :ref:`HowTos <howtos>` for more informaiton.
+-  generalized visualization parameters between functions
+
+Giotto 0.3.1
+-----------------------
+
+-  (optional) automatic installation of python modules through
+   reticulate:
+
+   -  you can provide your preferred python path
+   -  the giotto environment can be installed automatic
+   -  if you do not provide the python path and do not choose to install
+      the giotto environment, then it will take the default python path
+
+-  several bug fixes
+-  several mini-datasets are now included within Giotto for quick
+   testing:
+
+   -  field 1 of seqFISH+ (single-cell)
+   -  the visium brain Dentate Gyrus subset (spots)
+   -  subset of starMAP (3D)
+
+example to acces the seqFISH+ mini dataset:
+
+.. code:: r
+
+    # raw counts
+    small_seqfish_expr_matrix = read.table(system.file("extdata", "seqfish_field_expr.txt", package = 'Giotto'))
+    # cell locations
+    small_seqfish_locations = read.table(system.file("extdata", "seqfish_field_locs.txt", package = 'Giotto'))
+
+Giotto 0.3.0
+-----------------------
+
+-  Default spatial network created with **createSpatialNetwork** is now
+   a Delaunay spatial network.
+
+.. code:: r
+
+    # to create the old default kNN spatial network use:
+    createSpatialKNNnetwork(gobject)
+
+    # or use this function with the following setting
+    createSpatialNetwork(gobject, method = 'kNN')
+
+-  The function names for extracting spatial genes have changed:
+
+.. code:: r
+
+    # binGetSpatialGenes is now:
+    binSpect(gobject) # binary Spatial extraction
+
+    # spatial_genes_python is now:
+    silhouetteRank(gobject)
+
+-  Fixed multiple bugs
+-  Improved speed by changing code to Rcpp and implementing
+   parallelization options
+-  updated :ref:`HowTos <howtos>` tutorials in
+   Start section
+-  Finished the analysis of 10 different spatial datasets (tutorials are
+   a work-in-progress)
+
+Giotto 0.2.4
+-----------------------
+
+-  New examples on mouse kidney and brain using the recently released
+   `10X Visium
+   datasets <https://www.10xgenomics.com/spatial-transcriptomics/>`__
+   (**NEW**)
+-  Added tools to identify spatial enrichment based on cell-type
+   specific gene signature lists (**NEW**)
+
+Giotto 0.2.3
+-----------------------
+
+-  New example with 3D-like spatial data of the mouse hypothalamic
+   preoptic region using
+   `merFISH <https://science.sciencemag.org/content/362/6416/eaau5324>`__
+   (**NEW**)
+-  New example with 3D spatial data
+   `STARmap <https://science.sciencemag.org/content/361/6400/eaat5691>`__
+-  New example with the highly sensitive data from
+   `osmFISH <https://www.nature.com/articles/s41592-018-0175-z>`__
+-  New example on the Cerebellum with the scalable data from
+   `Slideseq <https://science.sciencemag.org/content/363/6434/1463>`__
+-  New example on mouse olfactory bulb using immobilized primers on
+   glass slides from `Spatial
+   Transcriptomics <https://science.sciencemag.org/content/353/6294/78>`__
+-  Updated seqFISH+ cortex example (**NEW**)
+-  Updated STARmap cortex example (**NEW**)
+
+Giotto 0.2.2
+-----------------------
+
+-  Implemented `SpatialDE <https://github.com/Teichlab/SpatialDE>`__ and
+   `trendsceek <https://github.com/edsgard/trendsceek>`__
+-  Updated support for 3D spatial data
+-  Added support for the use of global instructions and automatically
+   saving your plots (**NEW**)
+-  Add wrapper for differential expression with
+   `MAST <https://github.com/RGLab/MAST>`__ and
+   `SCRAN <https://bioconductor.org/packages/release/bioc/html/scran.html>`__
+
+Contact
+================================
+
+Browse source code here:	`https://​github.com/​RubD/​Giotto/​ <https://​github.com/​RubD/​Giotto/​>`_
+
+Report a bug at: `https://​github.com/​RubD/​Giotto/​issues <https://​github.com/​RubD/​Giotto/​issues>`_
+
+Contribute
+===================================
+
+How to contribute?
+--------------------
+We welcome contributions or suggestions from other developers. Below, we provide a number of rules, suggestions and tips to help you contribute to Giotto in a sustainable manner. Please contact us if you have questions or would like to discuss an addition or major modifications to the Giotto main code.
+
+Coding Style
+--------------------
+
+Following a particular programming style will help programmers read and
+understand source code conforming to the style, and help to avoid
+introducing errors. Here we present a small list of guidelines on what
+is considered a good practice when writing R codes in Giotto package.
+Most of them are adapted from `Bioconductor - Coding
+Style <https://bioconductor.org/developers/how-to/coding-style/>`__ or
+`Google’s R Style
+Guide <https://google.github.io/styleguide/Rguide.xml>`__. These
+guidelines are preferences and strongly encouraged!
+
+-  **Indentation**
+
+   -  Use 4 spaces for indenting. No tabs.
+   -  Prefereably no lines longer than 80 characters. This includes
+      function documentations, examples, and vignette code chunks.
+
+-  **Function names**
+
+   -  Use camelCase.
+   -  Do not use “.” (in the S3 class system, some(x) where x is class A
+      will dispatch to some.A).
+   -  Use underscores for non-exported functions, like
+      ‘non_exported_function’.
+
+-  **Use of space**
+
+   -  Do not place a space before a comma, but always place one after a
+      comma. This: a, b, c.
+   -  Always use space around “=” when using named arguments to
+      functions. This: somefunc(a = 1, b = 2).
+
+
+
+Stat Functions
+------------------
+
+Most Giotto commands can accept several matrix classes (SparseM, Matrix
+or base). To facilitate this we provide small wrappers that work on any
+type of matrix class.
+
+-  **mean_giotto**: analogous to mean()
+-  **rowSums_giotto**: analogous to rowSums()
+-  **rowMeans_giotto**: analogous to rowMeans()
+-  **colSums_giotto**: analogous to colSums()
+-  **colMeans_giotto**: analogous to colMeans()
+-  **t_giotto**: analogous to t()
+-  **cor_sparse**: analogous to cor()
+
+
+
+Auxiliary Functions
+-------------------
+
+Giotto has a number of auxiliary or convenience functions that might
+help you to adapt your code or write new code for Giotto. We encourage
+you to use these small functions to maintain uniformity throughout the
+code.
+
+-  **giotto_lapply**: analogous to lapply() and works for both windows
+   and unix systems
+-  **all_plots_save_function**: compatible with Giotto instructions and
+   helps to automatically save generated plots
+-  **determine_cores**: to determine the number of cores to use if a
+   user does not set this explicitly
+-  **get_os**: to identify the operating system
+-  **package_check**: to check if a package exists, works for packages
+   on CRAN, Bioconductor and Github.
+
+The last function should be used within your contribution code. It has
+the additional benefit that it will suggest the user how to download the
+package if it is not available. To keep the size of Giotto within limits
+we prefer not to add too many new dependencies.
+
+
+Accessors
+-------------------
+
+Giotto stores information in different slots, which can be accessed
+through these accessor functions.
+
+-  **select_expression_values**: To select the expression matrix to use
+   (raw, normalized, scaled or custom)
+-  **select_dimReduction**: To select the dimension reduction values to
+   use
+-  **select_NearestNetwork**: To select the nearest neighbor network
+   (kNN or sNN) to use
+-  **select_spatialNetwork**: To select the spatial network to use
+-  **select_spatialGrid**: To select the spatial grid to use
+
+
+Python code
+----------------------
+
+To use Python code we prefer to create a python wrapper/functions around
+the python code, which can then be sourced by reticulate. As an example
+we show the basic principles of how we implemented the Leiden clustering
+algorithm.
+
+1. write python wrapper and store as python_leiden.py in */inst/python*:
+
+.. code-block::
+	
+   import igraph as ig 
+   import leidenalg as la
+   import pandas as pd 
+   import networkx as nx
+
+   def python_leiden(df, partition_type, initial_membership=None, weights=None, n_iterations=2, seed=None, resolution_parameter = 1):
+
+   # Create networkx object
+   Gx = nx.from_pandas_edgelist(df = df, source = 'from', target =  'to', edge_attr = 'weight')  
+
+   # Get weight attribute
+   myweights = nx.get_edge_attributes(Gx, 'weight')
+
+   ....
+
+   return(leiden_dfr)
+
+
+
+2. Source python code with reticulate:  
+
+.. code-block::
+
+
+   python_leiden_function = system.file("python", "python_leiden.py", package = 'Giotto')
+   reticulate::source_python(file = python_leiden_function)
+
+
+3. Use python code as if R code:
+
+*See **doLeidenCLuster** for more detailed information* 
+
+.. code-block::
+
+ pyth_leid_result = python_leiden(df = network_edge_dt,
+                                   partition_type = partition_type,
+                                   initial_membership = init_membership,
+                                   weights = 'weight',
+                                   n_iterations = n_iterations,
+                                   seed = seed_number,
+                                   resolution_parameter = resolution)
+
+Example
+-----------------
+
+As an example we show the implementation of SPARK, which is a recent
+method developed by `Sun et
+al <https://doi.org/10.1038/s41592-019-0701-7>`__ and provide some
+comments within the code.
+
+
+.. code-block::
+
+  spark = function(gobject,
+                 percentage = 0.1,
+                 min_count = 10,
+                 expression_values = 'raw',
+                 num_core = 5,
+                 covariates = NULL,
+                 return_object = 'data.table',
+                 ...) {
+
+  # data.table variables; this is necessary when setting new variables within a data.table
+  genes =  adjusted_pvalue = combined_pvalue = NULL
+
+  # test if SPARK is installed 
+  # if false, it will suggest how to install SPARK
+  package_check(pkg_name = 'SPARK',
+                repository = c('github'),
+                github_repo = 'xzhoulab/SPARK')
+
+
+  # print message with information and encouraging users to cite the authors their work  
+  message("using 'SPARK' for spatial gene/pattern detection. If used in published research, please cite:
+  Sun, Shiquan, Jiaqiang Zhu, and Xiang Zhou. “Statistical Analysis of Spatial Expression Pattern for Spatially Resolved Transcriptomic Studies.”
+          BioRxiv, October 21, 2019, 810903. https://doi.org/10.1101/810903.")
+
+
+  # extract expression values from gobject using one of the accessors
+  expr = select_expression_values(gobject = gobject, values = expression_values)
+
+  # extract coordinates from gobject
+  # check the different slots of the giotto S4 object
+  locs = as.data.frame(gobject@spatial_locs)
+  rownames(locs) = colnames(expr)
+
+  
+  # Here we implemented spark according to their github example code: 
+  
+  # create SPARK object for analysis and filter out lowly expressed genes
+  sobject = SPARK::CreateSPARKObject(counts = expr,
+                                     location = locs[,1:2],
+                                     percentage = percentage,
+                                     min_total_counts = min_count)
+
+  # total counts for each cell
+  sobject@lib_size = apply(sobject@counts, 2, sum)
+
+  # extract covariates to adjust for from the cell metadata 
+  if(!is.null(covariates)) {
+
+    # first filter giotto object based on spark object
+    filter_cell_ids = colnames(sobject@counts)
+    filter_gene_ids = rownames(sobject@counts)
+    tempgobject = subsetGiotto(gobject, cell_ids = filter_cell_ids, gene_ids = filter_gene_ids)
+
+    metadata = pDataDT(tempgobject)
+
+    if(!covariates %in% colnames(metadata)) {
+      warning(covariates, ' was not found in the cell metadata of the giotto object, will be set to NULL \n')
+      covariates = NULL
+    } else {
+      covariates = metadata[[covariates]]
+    }
+  }
+
+  # Fit statistical model under null hypothesis
+  sobject = SPARK::spark.vc(sobject,
+                            covariates = covariates,
+                            lib_size = sobject@lib_size,
+                            num_core = num_core,
+                            verbose = F,
+                            ...)
+
+  # test spatially expressed pattern genes
+  # calculating pval
+  sobject = SPARK::spark.test(sobject,
+                              check_positive = T,
+                              verbose = F)
+
+  # return results
+  # return full output or a simple data.table format with the essental information
+  if(return_object == 'spark'){
+    return(sobject)
+  } else if(return_object == 'data.table'){
+    DT_results = data.table::as.data.table(sobject@res_mtest)
+    gene_names = rownames(sobject@counts)
+    DT_results[, genes := gene_names]
+    data.table::setorder(DT_results, adjusted_pvalue, combined_pvalue)
+    return(DT_results)
+  }
+
